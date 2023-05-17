@@ -1,0 +1,85 @@
+﻿
+@{
+    ViewBag.Title = "KullaniciEkle";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+@model IkinciEl.UI.Models.VM.KurumsalKullaniciVM
+<h2>KullaniciEkle</h2>
+
+@section ustMenu{
+
+
+    @using (Html.BeginForm("KullaniciEkle","Home",FormMethod.Post))
+    {
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-4" style="display:none;">
+                Kullanıcı ID:
+                @Html.TextBoxFor(a => a.KullaniciID, new { @class = "form-control" })
+            </div>
+            <div class="mb-3">
+                <label for="Mail" class="form-label">Kullanıcı Adı:</label>
+                @Html.TextBoxFor(a => a.KullaniciAdi, new { @class = "form-control" })
+            </div>
+            <div class="mb-3">
+                <label for="Mail" class="form-label">Ad ve Soyad:</label>
+                @Html.TextBoxFor(a => a.AdveSoyad, new { @class = "form-control" })
+            </div>
+            <div class="mb-3">
+                <label for="Mail" class="form-label">Telefon:</label>
+                @Html.TextBoxFor(a => a.Tel, new { @class = "form-control" })
+            </div>
+            <div class="mb-3">
+                <label for="Mail" class="form-label">Mail:</label>
+                @Html.TextBoxFor(a => a.Mail, new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">
+                @Html.DropDownListFor(model => model.RolID, new SelectList(ViewBag.rollist, "RolID", "RolAdi"), "Rol Seçiniz", new { @class = "form-control" })
+
+            </div>
+            <div class="col-md-4">
+                @Html.DropDownListFor(model => model.PaketID, new SelectList(ViewBag.paketlist, "PaketID", "PaketAdi"), "Paket Seçiniz", new { @class = "form-control" })
+
+            </div>
+
+            @if (Model == null)
+            {
+                <div class="mb-3">
+                    <label for="Sifre" class="form-label">Şifre:</label>
+                    @Html.TextBoxFor(a => a.Sifre, new { @class = "form-control" })
+                </div>
+
+            }
+
+
+            @if (Model == null)
+            {
+                <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                    <input type="submit" name="name" value="Kaydet" class="btn btn-primary" />
+                </div>
+            }
+            else
+            {
+                <div class="col-md-4">
+                    @Html.DropDownListFor(model => model.KullaniciOnaylimi, new SelectList(new List<SelectListItem> {
+                        new SelectListItem { Text = "Onaylı", Value = true.ToString() },
+                        new SelectListItem { Text = "Onaylı Değil", Value = false.ToString() }
+                    }, "Value", "Text"), "Onay Durumu", new { @class = "form-control" })
+                </div>
+                <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                    <input type="submit" name="name" value="Guncelle" class="btn btn-primary" />
+                </div>
+            }
+
+        </div>
+    }
+
+
+
+}
+
+
+@section altMenu{
+
+
+
+}

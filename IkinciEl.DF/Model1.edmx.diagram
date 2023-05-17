@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3b3b309db2ce40f7b2d73574523639f3" Name="Diagram1">
+        <EntityTypeShape EntityType="IkinciElAracModel.C__MigrationHistory" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.AldigimArac" Width="1.5" PointX="7.5" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.Arac" Width="1.5" PointX="10.5" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.AracDonanim" Width="1.5" PointX="12.75" PointY="16.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.AracMarka" Width="1.5" PointX="8.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.AracModel" Width="1.5" PointX="8.25" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.AracSatis" Width="1.5" PointX="15.75" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.Donanim" Width="1.5" PointX="10.5" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.ExpertizMerkez" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.Favori" Width="1.5" PointX="12.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.FirmaTuru" Width="1.5" PointX="0.75" PointY="17" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.Gorsel" Width="1.5" PointX="12.75" PointY="25.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.GovdeTipi" Width="1.5" PointX="6" PointY="7.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.Ihale" Width="1.5" PointX="12.75" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.IhaleFiyat" Width="1.5" PointX="15" PointY="24.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.IhaleFiyatKullanici" Width="1.5" PointX="18.25" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.IhaleStatu" Width="1.5" PointX="10.5" PointY="23" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.Ilanbilgisi" Width="1.5" PointX="8.25" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.Komisyon" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.Kullanici" Width="1.5" PointX="5.25" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.Mesaj" Width="1.5" PointX="7.5" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.NoterUcret" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.Paket" Width="1.5" PointX="3" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.Parca" Width="1.5" PointX="13.5" PointY="28.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.Renk" Width="1.5" PointX="8.25" PointY="22.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.Rol" Width="1.5" PointX="3" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.SatisTipi" Width="1.5" PointX="13.5" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.SattigimArac" Width="1.5" PointX="15.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.SirketBilgisi" Width="1.5" PointX="3" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.Statu" Width="1.5" PointX="7.5" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.StatuTipi" Width="1.5" PointX="5.25" PointY="12" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.sysdiagrams" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.TeklifVerdigimArac" Width="1.5" PointX="18.25" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.TramerBilgisi" Width="1.5" PointX="15.75" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.TramerBilgisiDurum" Width="1.5" PointX="13.5" PointY="31.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.VitesTipi" Width="1.5" PointX="8.25" PointY="24.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="IkinciElAracModel.YakitTipi" Width="1.5" PointX="8.25" PointY="31.125" IsExpanded="true" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_AldigimArac_dbo_Arac_AracID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_AldigimArac_dbo_Kullanici_KullaniciID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_Arac_Statu" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_Arac_dbo_AracMarka_AracMarkaID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_Arac_dbo_AracModel_AracModelID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_Arac_dbo_Ilanbilgisi_IlanbilgisiID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_Arac_dbo_Kullanici_KullaniciID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_Arac_dbo_Renk_RenkID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_Arac_dbo_VitesTipi_VitesTipiId" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_Arac_dbo_YakitTipi_YakıtTipiID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_AracDonanim_dbo_Arac_AracID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_AracSatis_dbo_Arac_AracID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_Favori_dbo_Arac_AracID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_Gorsel_dbo_Arac_AracID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_Ihale_dbo_Arac_AracID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_SattigimArac_dbo_Arac_AracID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_TramerBilgisi_dbo_Arac_AracID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_AracDonanim_dbo_Donanim_DonanimID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_AracModel_dbo_GovdeTipi_GovdeTipiID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_AracSatis_dbo_Kullanici_KullanıcıID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_AracSatis_dbo_SatisTipi_SatisTipiID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_Favori_dbo_Kullanici_KullaniciID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_SirketBilgisi_dbo_FirmaTuru_FirmaTuruID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_Ihale_dbo_IhaleStatu_IhaleStatuID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_Ihale_dbo_Kullanici_KullaniciID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_IhaleFiyat_dbo_Ihale_IhaleID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_IhaleFiyatKullanici_dbo_IhaleFiyat_IhaleFiyatID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_TeklifVerdigimArac_dbo_IhaleFiyat_IhaleFiyatID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_IhaleFiyatKullanici_dbo_Kullanici_KullaniciID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_Kullanici_dbo_Paket_PaketID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_Kullanici_dbo_Rol_RolID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_Kullanici_dbo_SirketBilgisi_SirketBilgisiID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_Mesaj_dbo_Kullanici_KullaniciID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_SattigimArac_dbo_Kullanici_KullaniciID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_Statu_dbo_Kullanici_KullaniciID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_TeklifVerdigimArac_dbo_Kullanici_KullaniciID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_TramerBilgisi_dbo_Parca_ParcaID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_Statu_dbo_StatuTipi_StatuTipiID" ManuallyRouted="false" />
+        <AssociationConnector Association="IkinciElAracModel.FK_dbo_TramerBilgisi_dbo_TramerBilgisiDurum_TramerBilgisiDurumID" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

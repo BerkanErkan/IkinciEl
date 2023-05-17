@@ -1,0 +1,162 @@
+﻿
+@{
+    ViewBag.Title = "AracEkle";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+@model IkinciEl.UI.Models.VM.AracDBVM
+<h2>AracEkle</h2>
+
+@section ustMenu{
+
+    @using (Html.BeginForm("AracEkle", "AracList", FormMethod.Post))
+    {
+        
+        
+        for (int i = 0; i < Model.tramerVMs.Count; i++)
+        {
+            @Html.HiddenFor(a => a.tramerVMs[i].ParcaID)
+            @Html.HiddenFor(a => a.tramerVMs[i].TramerID)
+            
+            <div class="col-md-4">
+                @Html.HiddenFor(a => a.tramerVMs[i].TramerBilgisiDurumID)
+
+            </div>
+
+        }
+
+        <div class="row" style="margin-top: 20px;">
+            @Html.HiddenFor(a => a.IlanbilgisiID)
+            @Html.HiddenFor(a => a.IlanBaslıgi)
+            @Html.HiddenFor(a => a.IlanAckilma)
+            @Html.HiddenFor(a => a.AracID)
+
+        </div>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-4">
+                BireyselMi/KurumsalMı:
+                @Html.DropDownListFor(model => model.KurumsalMİ, new List<SelectListItem>()
+                {
+                    new SelectListItem() { Text = "Bireysel", Value = "False" },
+                    new SelectListItem() { Text = "Kurumsal", Value = "True" }
+                }, "Bireysel/Kurumsal", new { @class = "form-control" })
+
+            </div>
+            <div class="col-md-4">
+                Sirket:
+                @Html.DropDownListFor(model => model.SirketID, new SelectList(ViewBag.Sirketlist, "SirketID", "SirketAdi"), "Seçiniz", new { @class = "form-control" })
+
+            </div>
+            <div class="col-md-4">
+                Araç Plakası:
+                @Html.TextBoxFor(a => a.Plaka, new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-4">
+                Marka:
+                @Html.DropDownListFor(model => model.AracMarkaID, new SelectList(ViewBag.Markalist, "AracMarkaID", "AracMarkaAdi"), " Seçiniz", new { @class = "form-control" })
+
+            </div>
+            <div class="col-md-4">
+                Model:
+                @Html.DropDownListFor(model => model.AracModelID, new SelectList(ViewBag.ModelList, "AracModelID", "AracModelAdi"), "Seçiniz", new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">
+                GovdeTipi:
+                @Html.DropDownListFor(model => model.GovdeTipiID, new SelectList(ViewBag.GovdeTipilist, "GovdeTipiID", "GovdeTipiAdi"), "Seçiniz", new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-4">
+                YakitTipi:
+                @Html.DropDownListFor(model => model.YakıtTipiID, new SelectList(ViewBag.YakitTipilist, "YakitTipiID", "YakitTipiAdi"), "Seçiniz", new { @class = "form-control" })
+
+            </div>
+            <div class="col-md-4">
+                VitesTipi:
+                @Html.DropDownListFor(model => model.VitesTipiId, new SelectList(ViewBag.VitesTipilist, "VitesTipiID", "VitesTipiAdi"), "Seçiniz", new { @class = "form-control" })
+
+            </div>
+            <div class="col-md-4">
+                Araç Kilometresi:
+                @Html.TextBoxFor(a => a.Kilometre, new { @class = "form-control" })
+            </div>
+
+
+        </div>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-4">
+                Renk:
+                @Html.DropDownListFor(model => model.RenkID, new SelectList(ViewBag.Renklist, "RenkID", "RenkAdi"), "Seçiniz", new { @class = "form-control" })
+
+            </div>
+            <div class="col-md-4">
+                Donanim:
+                @Html.DropDownListFor(model => model.DonanimID, new SelectList(ViewBag.Donanimlist, "DonanimID", "DonanimAdi"), "Seçiniz", new { @class = "form-control" })
+            </div>
+            <div class="col-md-4">
+                Araç Fiyatı:
+                @Html.TextBoxFor(a => a.AracFiyati, new { @class = "form-control" })
+            </div>
+
+
+        </div>
+        <div class="row" style="margin-top: 20px;">
+            @if (ViewBag.Kaydet != 1)
+            {
+                <div class="col-md-4">
+                    Onay Durumu:
+                    @Html.DropDownListFor(model => model.OnayliMi, new SelectList(new List<SelectListItem> {
+                        new SelectListItem { Text = "Onaylı", Value = true.ToString() },
+                        new SelectListItem { Text = "Onaylı Değil", Value = false.ToString() }
+                    }, "Value", "Text"), "Seçiniz", new { @class = "form-control" })
+                </div>
+
+            }
+
+
+        </div>
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-4">
+                @*@Html.ActionLink("Tramer", "AracDetayTramer", new { id = Model.IlanbilgisiID }, new { @class = "btn btn-primary" })*@
+                <input type="submit" name="name" value="Tramer Bilgisi" class="btn btn-primary" />
+            </div>
+            <div class="col-md-4">
+                @*@Html.ActionLink("Ilan Bilgisi", "AracDetayIlan", new { id = Model.IlanbilgisiID }, new { @class = "btn btn-primary" })*@
+                <input type="submit" name="name" value="Ilan Bilgisi" class="btn btn-primary" />
+            </div>
+
+
+            @if (ViewBag.Kaydet == 1)
+            {
+                <div class="col-md-4 d-flex justify-content-end">
+                    <input type="submit" name="name" value="Kaydet" class="btn btn-primary" />
+                </div>
+            }
+            else
+            {
+
+                <div class="col-md-4 d-flex justify-content-end">
+                    <input type="submit" name="name" value="Guncelle" class="btn btn-primary" />
+                </div>
+            }
+
+
+        </div>
+
+
+
+
+
+    }
+
+
+
+
+
+
+}
+
+
+@section altMenu{
+}

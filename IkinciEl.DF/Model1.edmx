@@ -1,0 +1,2630 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="IkinciElAracModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+          <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+          <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+          <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AldigimArac">
+          <Key>
+            <PropertyRef Name="AldigimAracId" />
+          </Key>
+          <Property Name="AldigimAracId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AldigimTarih" Type="datetime" Nullable="false" />
+          <Property Name="KullaniciID" Type="int" Nullable="false" />
+          <Property Name="AracID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Arac">
+          <Key>
+            <PropertyRef Name="AracID" />
+          </Key>
+          <Property Name="AracID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Yil" Type="datetime" Nullable="false" />
+          <Property Name="Kilometre" Type="int" Nullable="false" />
+          <Property Name="AracOnaylimi" Type="bit" Nullable="false" />
+          <Property Name="KaydedilmeZamanı" Type="datetime" Nullable="false" />
+          <Property Name="Plaka" Type="nvarchar(max)" />
+          <Property Name="AracAktifmi" Type="bit" Nullable="false" />
+          <Property Name="AracFiyati" Type="real" Nullable="false" />
+          <Property Name="KullaniciID" Type="int" Nullable="false" />
+          <Property Name="AracModelID" Type="int" Nullable="false" />
+          <Property Name="YakıtTipiID" Type="int" Nullable="false" />
+          <Property Name="VitesTipiId" Type="int" Nullable="false" />
+          <Property Name="RenkID" Type="int" Nullable="false" />
+          <Property Name="IlanbilgisiID" Type="int" Nullable="false" />
+          <Property Name="AracMarkaID" Type="int" Nullable="false" />
+          <Property Name="StatuID" Type="int" />
+          <Property Name="KurumsalMİ" Type="bit" />
+        </EntityType>
+        <EntityType Name="AracDonanim">
+          <Key>
+            <PropertyRef Name="AracDonanimID" />
+          </Key>
+          <Property Name="AracDonanimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AracID" Type="int" Nullable="false" />
+          <Property Name="DonanimID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AracMarka">
+          <Key>
+            <PropertyRef Name="AracMarkaID" />
+          </Key>
+          <Property Name="AracMarkaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AracMarkaAdi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="AracModel">
+          <Key>
+            <PropertyRef Name="AracModelID" />
+          </Key>
+          <Property Name="AracModelID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="AracModelAdi" Type="nvarchar(max)" />
+          <Property Name="GovdeTipiID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AracSatis">
+          <Key>
+            <PropertyRef Name="AracSatisID" />
+          </Key>
+          <Property Name="AracSatisID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SatisTarihi" Type="datetime" Nullable="false" />
+          <Property Name="SatinAlinanFiyat" Type="real" Nullable="false" />
+          <Property Name="AracID" Type="int" Nullable="false" />
+          <Property Name="KullanıcıID" Type="int" Nullable="false" />
+          <Property Name="SatisTipiID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Donanim">
+          <Key>
+            <PropertyRef Name="DonanimID" />
+          </Key>
+          <Property Name="DonanimID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="DonanimAdi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="ExpertizMerkez">
+          <Key>
+            <PropertyRef Name="ExpertizMerkezID" />
+          </Key>
+          <Property Name="ExpertizMerkezID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ExpertizMerkezAdi" Type="nvarchar(max)" />
+          <Property Name="ExpertizMerkezAdresi" Type="nvarchar(max)" />
+          <Property Name="ExpertizMerkezTelefonu" Type="nvarchar(max)" />
+          <Property Name="ExpertizMerkezMaili" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Favori">
+          <Key>
+            <PropertyRef Name="FavoriId" />
+          </Key>
+          <Property Name="FavoriId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciID" Type="int" Nullable="false" />
+          <Property Name="AracID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="FirmaTuru">
+          <Key>
+            <PropertyRef Name="FirmaTuruID" />
+          </Key>
+          <Property Name="FirmaTuruID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FiirmaTuruAdi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Gorsel">
+          <Key>
+            <PropertyRef Name="GorselID" />
+          </Key>
+          <Property Name="GorselID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GorselAdresi" Type="nvarchar(max)" />
+          <Property Name="AracID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="GovdeTipi">
+          <Key>
+            <PropertyRef Name="GovdeTipiID" />
+          </Key>
+          <Property Name="GovdeTipiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GovdeTipiAdi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Ihale">
+          <Key>
+            <PropertyRef Name="IhaleID" />
+          </Key>
+          <Property Name="IhaleID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IhaleAdi" Type="nvarchar(max)" />
+          <Property Name="IhaleBaslangicTarihi" Type="datetime" Nullable="false" />
+          <Property Name="IhaleBitisTarihi" Type="datetime" Nullable="false" />
+          <Property Name="IhaleBaslangicFiyati" Type="real" Nullable="false" />
+          <Property Name="MaxAlimFiyati" Type="real" Nullable="false" />
+          <Property Name="KurumsalMi" Type="bit" Nullable="false" />
+          <Property Name="KullaniciID" Type="int" Nullable="false" />
+          <Property Name="AracID" Type="int" Nullable="false" />
+          <Property Name="IhaleStatuID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IhaleFiyat">
+          <Key>
+            <PropertyRef Name="IhaleFiyatID" />
+          </Key>
+          <Property Name="IhaleFiyatID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Fiyat" Type="real" Nullable="false" />
+          <Property Name="SiraNo" Type="int" Nullable="false" />
+          <Property Name="KullaniciID" Type="int" Nullable="false" />
+          <Property Name="IhaleID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IhaleFiyatKullanici">
+          <Key>
+            <PropertyRef Name="IhaleFiyatKullaniciID" />
+          </Key>
+          <Property Name="IhaleFiyatKullaniciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciID" Type="int" Nullable="false" />
+          <Property Name="IhaleFiyatID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="IhaleStatu">
+          <Key>
+            <PropertyRef Name="IhaleStatuID" />
+          </Key>
+          <Property Name="IhaleStatuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IhaleStatuAdi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Ilanbilgisi">
+          <Key>
+            <PropertyRef Name="IlanbilgisiID" />
+          </Key>
+          <Property Name="IlanbilgisiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="IlanBasligi" Type="nvarchar(max)" />
+          <Property Name="IlanAciklama" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Komisyon">
+          <Key>
+            <PropertyRef Name="KomisyonID" />
+          </Key>
+          <Property Name="KomisyonID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BaslangicTarihi" Type="datetime" Nullable="false" />
+          <Property Name="BitisTarihi" Type="datetime" Nullable="false" />
+          <Property Name="MaxFiyat" Type="real" Nullable="false" />
+          <Property Name="MinFiyat" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="KullaniciID" />
+          </Key>
+          <Property Name="KullaniciID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciAdi" Type="nvarchar(max)" />
+          <Property Name="AdVeSoyad" Type="nvarchar(max)" />
+          <Property Name="Telefon" Type="nvarchar(max)" />
+          <Property Name="Mail" Type="nvarchar(max)" />
+          <Property Name="KullaniciAktifmi" Type="bit" Nullable="false" />
+          <Property Name="Sifre" Type="nvarchar(max)" />
+          <Property Name="ToplamIhaleAracSayisi" Type="int" Nullable="false" />
+          <Property Name="KullaniciOnaylimi" Type="bit" Nullable="false" />
+          <Property Name="KVKKTiklimi" Type="bit" Nullable="false" />
+          <Property Name="RolID" Type="int" Nullable="false" />
+          <Property Name="PaketID" Type="int" Nullable="false" />
+          <Property Name="SirketBilgisiID" Type="int" Nullable="false" />
+          <Property Name="KurumsalMi" Type="bit" />
+        </EntityType>
+        <EntityType Name="Mesaj">
+          <Key>
+            <PropertyRef Name="MesajID" />
+          </Key>
+          <Property Name="MesajID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="MesajIcerik" Type="nvarchar(max)" />
+          <Property Name="KullaniciID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="NoterUcret">
+          <Key>
+            <PropertyRef Name="NoterUcretID" />
+          </Key>
+          <Property Name="NoterUcretID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="BaslangicTarihi" Type="datetime" Nullable="false" />
+          <Property Name="BitisTarihi" Type="datetime" Nullable="false" />
+          <Property Name="Ucret" Type="real" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Paket">
+          <Key>
+            <PropertyRef Name="PaketID" />
+          </Key>
+          <Property Name="PaketID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PaketAdi" Type="nvarchar(max)" />
+          <Property Name="IhaledekiMaxAracSayasi" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Parca">
+          <Key>
+            <PropertyRef Name="ParcaID" />
+          </Key>
+          <Property Name="ParcaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ParcaAdi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Renk">
+          <Key>
+            <PropertyRef Name="RenkID" />
+          </Key>
+          <Property Name="RenkID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RenkAdi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="RolID" />
+          </Key>
+          <Property Name="RolID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RolAdi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SatisTipi">
+          <Key>
+            <PropertyRef Name="SatisTipiID" />
+          </Key>
+          <Property Name="SatisTipiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SatisTipiAdi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="SattigimArac">
+          <Key>
+            <PropertyRef Name="SattigimAracId" />
+          </Key>
+          <Property Name="SattigimAracId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SattigimTarih" Type="datetime" Nullable="false" />
+          <Property Name="KullaniciID" Type="int" Nullable="false" />
+          <Property Name="AracID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="SirketBilgisi">
+          <Key>
+            <PropertyRef Name="SirketBİlgisiID" />
+          </Key>
+          <Property Name="SirketBİlgisiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="FirmaAdi" Type="nvarchar(max)" />
+          <Property Name="Sehir" Type="nvarchar(max)" />
+          <Property Name="Ilce" Type="nvarchar(max)" />
+          <Property Name="Adres" Type="nvarchar(max)" />
+          <Property Name="FirmaTuruID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Statu">
+          <Key>
+            <PropertyRef Name="StatuID" />
+          </Key>
+          <Property Name="StatuID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Tarih" Type="datetime" Nullable="false" />
+          <Property Name="StatuTipiID" Type="int" Nullable="false" />
+          <Property Name="KullaniciID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="StatuTipi">
+          <Key>
+            <PropertyRef Name="StatuTipiID" />
+          </Key>
+          <Property Name="StatuTipiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="StatuTipiAdi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="principal_id" Type="int" Nullable="false" />
+          <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="version" Type="int" />
+          <Property Name="definition" Type="varbinary(max)" />
+        </EntityType>
+        <EntityType Name="TeklifVerdigimArac">
+          <Key>
+            <PropertyRef Name="TeklifVerdigimAracId" />
+          </Key>
+          <Property Name="TeklifVerdigimAracId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KullaniciID" Type="int" Nullable="false" />
+          <Property Name="IhaleFiyatID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TramerBilgisi">
+          <Key>
+            <PropertyRef Name="TramerBilgisiID" />
+          </Key>
+          <Property Name="TramerBilgisiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TramerBilgisiDurumID" Type="int" Nullable="false" />
+          <Property Name="ParcaID" Type="int" Nullable="false" />
+          <Property Name="AracID" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="TramerBilgisiDurum">
+          <Key>
+            <PropertyRef Name="TramerBilgisiDurumID" />
+          </Key>
+          <Property Name="TramerBilgisiDurumID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TramerBilgisiDurumAdi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="VitesTipi">
+          <Key>
+            <PropertyRef Name="VitesTipiiID" />
+          </Key>
+          <Property Name="VitesTipiiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="VitesTipiAdi" Type="nvarchar(max)" />
+        </EntityType>
+        <EntityType Name="YakitTipi">
+          <Key>
+            <PropertyRef Name="YakitTipiID" />
+          </Key>
+          <Property Name="YakitTipiID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="YakitTipiAdi" Type="nvarchar(max)" />
+        </EntityType>
+        <Association Name="FK_Arac_Statu">
+          <End Role="Statu" Type="Self.Statu" Multiplicity="0..1" />
+          <End Role="Arac" Type="Self.Arac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statu">
+              <PropertyRef Name="StatuID" />
+            </Principal>
+            <Dependent Role="Arac">
+              <PropertyRef Name="StatuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AldigimArac_dbo_Arac_AracID">
+          <End Role="Arac" Type="Self.Arac" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AldigimArac" Type="Self.AldigimArac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arac">
+              <PropertyRef Name="AracID" />
+            </Principal>
+            <Dependent Role="AldigimArac">
+              <PropertyRef Name="AracID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AldigimArac_dbo_Kullanici_KullaniciID">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AldigimArac" Type="Self.AldigimArac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="AldigimArac">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Arac_dbo_AracMarka_AracMarkaID">
+          <End Role="AracMarka" Type="Self.AracMarka" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Arac" Type="Self.Arac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AracMarka">
+              <PropertyRef Name="AracMarkaID" />
+            </Principal>
+            <Dependent Role="Arac">
+              <PropertyRef Name="AracMarkaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Arac_dbo_AracModel_AracModelID">
+          <End Role="AracModel" Type="Self.AracModel" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Arac" Type="Self.Arac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AracModel">
+              <PropertyRef Name="AracModelID" />
+            </Principal>
+            <Dependent Role="Arac">
+              <PropertyRef Name="AracModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Arac_dbo_Ilanbilgisi_IlanbilgisiID">
+          <End Role="Ilanbilgisi" Type="Self.Ilanbilgisi" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Arac" Type="Self.Arac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ilanbilgisi">
+              <PropertyRef Name="IlanbilgisiID" />
+            </Principal>
+            <Dependent Role="Arac">
+              <PropertyRef Name="IlanbilgisiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Arac_dbo_Kullanici_KullaniciID">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1" />
+          <End Role="Arac" Type="Self.Arac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="Arac">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Arac_dbo_Renk_RenkID">
+          <End Role="Renk" Type="Self.Renk" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Arac" Type="Self.Arac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Renk">
+              <PropertyRef Name="RenkID" />
+            </Principal>
+            <Dependent Role="Arac">
+              <PropertyRef Name="RenkID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Arac_dbo_VitesTipi_VitesTipiId">
+          <End Role="VitesTipi" Type="Self.VitesTipi" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Arac" Type="Self.Arac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VitesTipi">
+              <PropertyRef Name="VitesTipiiID" />
+            </Principal>
+            <Dependent Role="Arac">
+              <PropertyRef Name="VitesTipiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Arac_dbo_YakitTipi_YakıtTipiID">
+          <End Role="YakitTipi" Type="Self.YakitTipi" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Arac" Type="Self.Arac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YakitTipi">
+              <PropertyRef Name="YakitTipiID" />
+            </Principal>
+            <Dependent Role="Arac">
+              <PropertyRef Name="YakıtTipiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AracDonanim_dbo_Arac_AracID">
+          <End Role="Arac" Type="Self.Arac" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AracDonanim" Type="Self.AracDonanim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arac">
+              <PropertyRef Name="AracID" />
+            </Principal>
+            <Dependent Role="AracDonanim">
+              <PropertyRef Name="AracID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AracDonanim_dbo_Donanim_DonanimID">
+          <End Role="Donanim" Type="Self.Donanim" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AracDonanim" Type="Self.AracDonanim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Donanim">
+              <PropertyRef Name="DonanimID" />
+            </Principal>
+            <Dependent Role="AracDonanim">
+              <PropertyRef Name="DonanimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AracModel_dbo_GovdeTipi_GovdeTipiID">
+          <End Role="GovdeTipi" Type="Self.GovdeTipi" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AracModel" Type="Self.AracModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GovdeTipi">
+              <PropertyRef Name="GovdeTipiID" />
+            </Principal>
+            <Dependent Role="AracModel">
+              <PropertyRef Name="GovdeTipiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AracSatis_dbo_Arac_AracID">
+          <End Role="Arac" Type="Self.Arac" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AracSatis" Type="Self.AracSatis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arac">
+              <PropertyRef Name="AracID" />
+            </Principal>
+            <Dependent Role="AracSatis">
+              <PropertyRef Name="AracID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AracSatis_dbo_Kullanici_KullanıcıID">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AracSatis" Type="Self.AracSatis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="AracSatis">
+              <PropertyRef Name="KullanıcıID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AracSatis_dbo_SatisTipi_SatisTipiID">
+          <End Role="SatisTipi" Type="Self.SatisTipi" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AracSatis" Type="Self.AracSatis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SatisTipi">
+              <PropertyRef Name="SatisTipiID" />
+            </Principal>
+            <Dependent Role="AracSatis">
+              <PropertyRef Name="SatisTipiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Favori_dbo_Arac_AracID">
+          <End Role="Arac" Type="Self.Arac" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Favori" Type="Self.Favori" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arac">
+              <PropertyRef Name="AracID" />
+            </Principal>
+            <Dependent Role="Favori">
+              <PropertyRef Name="AracID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Favori_dbo_Kullanici_KullaniciID">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Favori" Type="Self.Favori" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="Favori">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Gorsel_dbo_Arac_AracID">
+          <End Role="Arac" Type="Self.Arac" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Gorsel" Type="Self.Gorsel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arac">
+              <PropertyRef Name="AracID" />
+            </Principal>
+            <Dependent Role="Gorsel">
+              <PropertyRef Name="AracID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Ihale_dbo_Arac_AracID">
+          <End Role="Arac" Type="Self.Arac" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ihale" Type="Self.Ihale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arac">
+              <PropertyRef Name="AracID" />
+            </Principal>
+            <Dependent Role="Ihale">
+              <PropertyRef Name="AracID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Ihale_dbo_IhaleStatu_IhaleStatuID">
+          <End Role="IhaleStatu" Type="Self.IhaleStatu" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ihale" Type="Self.Ihale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IhaleStatu">
+              <PropertyRef Name="IhaleStatuID" />
+            </Principal>
+            <Dependent Role="Ihale">
+              <PropertyRef Name="IhaleStatuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Ihale_dbo_Kullanici_KullaniciID">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ihale" Type="Self.Ihale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="Ihale">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_IhaleFiyat_dbo_Ihale_IhaleID">
+          <End Role="Ihale" Type="Self.Ihale" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="IhaleFiyat" Type="Self.IhaleFiyat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ihale">
+              <PropertyRef Name="IhaleID" />
+            </Principal>
+            <Dependent Role="IhaleFiyat">
+              <PropertyRef Name="IhaleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_IhaleFiyatKullanici_dbo_IhaleFiyat_IhaleFiyatID">
+          <End Role="IhaleFiyat" Type="Self.IhaleFiyat" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="IhaleFiyatKullanici" Type="Self.IhaleFiyatKullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IhaleFiyat">
+              <PropertyRef Name="IhaleFiyatID" />
+            </Principal>
+            <Dependent Role="IhaleFiyatKullanici">
+              <PropertyRef Name="IhaleFiyatID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_IhaleFiyatKullanici_dbo_Kullanici_KullaniciID">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1" />
+          <End Role="IhaleFiyatKullanici" Type="Self.IhaleFiyatKullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="IhaleFiyatKullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Kullanici_dbo_Paket_PaketID">
+          <End Role="Paket" Type="Self.Paket" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paket">
+              <PropertyRef Name="PaketID" />
+            </Principal>
+            <Dependent Role="Kullanici">
+              <PropertyRef Name="PaketID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Kullanici_dbo_Rol_RolID">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="RolID" />
+            </Principal>
+            <Dependent Role="Kullanici">
+              <PropertyRef Name="RolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Kullanici_dbo_SirketBilgisi_SirketBilgisiID">
+          <End Role="SirketBilgisi" Type="Self.SirketBilgisi" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SirketBilgisi">
+              <PropertyRef Name="SirketBİlgisiID" />
+            </Principal>
+            <Dependent Role="Kullanici">
+              <PropertyRef Name="SirketBilgisiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Mesaj_dbo_Kullanici_KullaniciID">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Mesaj" Type="Self.Mesaj" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="Mesaj">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SattigimArac_dbo_Arac_AracID">
+          <End Role="Arac" Type="Self.Arac" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SattigimArac" Type="Self.SattigimArac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arac">
+              <PropertyRef Name="AracID" />
+            </Principal>
+            <Dependent Role="SattigimArac">
+              <PropertyRef Name="AracID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SattigimArac_dbo_Kullanici_KullaniciID">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SattigimArac" Type="Self.SattigimArac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="SattigimArac">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SirketBilgisi_dbo_FirmaTuru_FirmaTuruID">
+          <End Role="FirmaTuru" Type="Self.FirmaTuru" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SirketBilgisi" Type="Self.SirketBilgisi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FirmaTuru">
+              <PropertyRef Name="FirmaTuruID" />
+            </Principal>
+            <Dependent Role="SirketBilgisi">
+              <PropertyRef Name="FirmaTuruID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Statu_dbo_Kullanici_KullaniciID">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Statu" Type="Self.Statu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="Statu">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Statu_dbo_StatuTipi_StatuTipiID">
+          <End Role="StatuTipi" Type="Self.StatuTipi" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Statu" Type="Self.Statu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatuTipi">
+              <PropertyRef Name="StatuTipiID" />
+            </Principal>
+            <Dependent Role="Statu">
+              <PropertyRef Name="StatuTipiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_TeklifVerdigimArac_dbo_IhaleFiyat_IhaleFiyatID">
+          <End Role="IhaleFiyat" Type="Self.IhaleFiyat" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TeklifVerdigimArac" Type="Self.TeklifVerdigimArac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IhaleFiyat">
+              <PropertyRef Name="IhaleFiyatID" />
+            </Principal>
+            <Dependent Role="TeklifVerdigimArac">
+              <PropertyRef Name="IhaleFiyatID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_TeklifVerdigimArac_dbo_Kullanici_KullaniciID">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1" />
+          <End Role="TeklifVerdigimArac" Type="Self.TeklifVerdigimArac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="TeklifVerdigimArac">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_TramerBilgisi_dbo_Arac_AracID">
+          <End Role="Arac" Type="Self.Arac" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TramerBilgisi" Type="Self.TramerBilgisi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arac">
+              <PropertyRef Name="AracID" />
+            </Principal>
+            <Dependent Role="TramerBilgisi">
+              <PropertyRef Name="AracID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_TramerBilgisi_dbo_Parca_ParcaID">
+          <End Role="Parca" Type="Self.Parca" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TramerBilgisi" Type="Self.TramerBilgisi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Parca">
+              <PropertyRef Name="ParcaID" />
+            </Principal>
+            <Dependent Role="TramerBilgisi">
+              <PropertyRef Name="ParcaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_TramerBilgisi_dbo_TramerBilgisiDurum_TramerBilgisiDurumID">
+          <End Role="TramerBilgisiDurum" Type="Self.TramerBilgisiDurum" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TramerBilgisi" Type="Self.TramerBilgisi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TramerBilgisiDurum">
+              <PropertyRef Name="TramerBilgisiDurumID" />
+            </Principal>
+            <Dependent Role="TramerBilgisi">
+              <PropertyRef Name="TramerBilgisiDurumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IkinciElAracModelStoreContainer">
+          <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AldigimArac" EntityType="Self.AldigimArac" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Arac" EntityType="Self.Arac" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AracDonanim" EntityType="Self.AracDonanim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AracMarka" EntityType="Self.AracMarka" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AracModel" EntityType="Self.AracModel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AracSatis" EntityType="Self.AracSatis" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Donanim" EntityType="Self.Donanim" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ExpertizMerkez" EntityType="Self.ExpertizMerkez" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Favori" EntityType="Self.Favori" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="FirmaTuru" EntityType="Self.FirmaTuru" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Gorsel" EntityType="Self.Gorsel" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="GovdeTipi" EntityType="Self.GovdeTipi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ihale" EntityType="Self.Ihale" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IhaleFiyat" EntityType="Self.IhaleFiyat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IhaleFiyatKullanici" EntityType="Self.IhaleFiyatKullanici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="IhaleStatu" EntityType="Self.IhaleStatu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Ilanbilgisi" EntityType="Self.Ilanbilgisi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Komisyon" EntityType="Self.Komisyon" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Kullanici" EntityType="Self.Kullanici" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Mesaj" EntityType="Self.Mesaj" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="NoterUcret" EntityType="Self.NoterUcret" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Paket" EntityType="Self.Paket" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Parca" EntityType="Self.Parca" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Renk" EntityType="Self.Renk" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SatisTipi" EntityType="Self.SatisTipi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SattigimArac" EntityType="Self.SattigimArac" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="SirketBilgisi" EntityType="Self.SirketBilgisi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Statu" EntityType="Self.Statu" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="StatuTipi" EntityType="Self.StatuTipi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TeklifVerdigimArac" EntityType="Self.TeklifVerdigimArac" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TramerBilgisi" EntityType="Self.TramerBilgisi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="TramerBilgisiDurum" EntityType="Self.TramerBilgisiDurum" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="VitesTipi" EntityType="Self.VitesTipi" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="YakitTipi" EntityType="Self.YakitTipi" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Arac_Statu" Association="Self.FK_Arac_Statu">
+            <End Role="Statu" EntitySet="Statu" />
+            <End Role="Arac" EntitySet="Arac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AldigimArac_dbo_Arac_AracID" Association="Self.FK_dbo_AldigimArac_dbo_Arac_AracID">
+            <End Role="Arac" EntitySet="Arac" />
+            <End Role="AldigimArac" EntitySet="AldigimArac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AldigimArac_dbo_Kullanici_KullaniciID" Association="Self.FK_dbo_AldigimArac_dbo_Kullanici_KullaniciID">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="AldigimArac" EntitySet="AldigimArac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Arac_dbo_AracMarka_AracMarkaID" Association="Self.FK_dbo_Arac_dbo_AracMarka_AracMarkaID">
+            <End Role="AracMarka" EntitySet="AracMarka" />
+            <End Role="Arac" EntitySet="Arac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Arac_dbo_AracModel_AracModelID" Association="Self.FK_dbo_Arac_dbo_AracModel_AracModelID">
+            <End Role="AracModel" EntitySet="AracModel" />
+            <End Role="Arac" EntitySet="Arac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Arac_dbo_Ilanbilgisi_IlanbilgisiID" Association="Self.FK_dbo_Arac_dbo_Ilanbilgisi_IlanbilgisiID">
+            <End Role="Ilanbilgisi" EntitySet="Ilanbilgisi" />
+            <End Role="Arac" EntitySet="Arac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Arac_dbo_Kullanici_KullaniciID" Association="Self.FK_dbo_Arac_dbo_Kullanici_KullaniciID">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Arac" EntitySet="Arac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Arac_dbo_Renk_RenkID" Association="Self.FK_dbo_Arac_dbo_Renk_RenkID">
+            <End Role="Renk" EntitySet="Renk" />
+            <End Role="Arac" EntitySet="Arac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Arac_dbo_VitesTipi_VitesTipiId" Association="Self.FK_dbo_Arac_dbo_VitesTipi_VitesTipiId">
+            <End Role="VitesTipi" EntitySet="VitesTipi" />
+            <End Role="Arac" EntitySet="Arac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Arac_dbo_YakitTipi_YakıtTipiID" Association="Self.FK_dbo_Arac_dbo_YakitTipi_YakıtTipiID">
+            <End Role="YakitTipi" EntitySet="YakitTipi" />
+            <End Role="Arac" EntitySet="Arac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AracDonanim_dbo_Arac_AracID" Association="Self.FK_dbo_AracDonanim_dbo_Arac_AracID">
+            <End Role="Arac" EntitySet="Arac" />
+            <End Role="AracDonanim" EntitySet="AracDonanim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AracDonanim_dbo_Donanim_DonanimID" Association="Self.FK_dbo_AracDonanim_dbo_Donanim_DonanimID">
+            <End Role="Donanim" EntitySet="Donanim" />
+            <End Role="AracDonanim" EntitySet="AracDonanim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AracModel_dbo_GovdeTipi_GovdeTipiID" Association="Self.FK_dbo_AracModel_dbo_GovdeTipi_GovdeTipiID">
+            <End Role="GovdeTipi" EntitySet="GovdeTipi" />
+            <End Role="AracModel" EntitySet="AracModel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AracSatis_dbo_Arac_AracID" Association="Self.FK_dbo_AracSatis_dbo_Arac_AracID">
+            <End Role="Arac" EntitySet="Arac" />
+            <End Role="AracSatis" EntitySet="AracSatis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AracSatis_dbo_Kullanici_KullanıcıID" Association="Self.FK_dbo_AracSatis_dbo_Kullanici_KullanıcıID">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="AracSatis" EntitySet="AracSatis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AracSatis_dbo_SatisTipi_SatisTipiID" Association="Self.FK_dbo_AracSatis_dbo_SatisTipi_SatisTipiID">
+            <End Role="SatisTipi" EntitySet="SatisTipi" />
+            <End Role="AracSatis" EntitySet="AracSatis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Favori_dbo_Arac_AracID" Association="Self.FK_dbo_Favori_dbo_Arac_AracID">
+            <End Role="Arac" EntitySet="Arac" />
+            <End Role="Favori" EntitySet="Favori" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Favori_dbo_Kullanici_KullaniciID" Association="Self.FK_dbo_Favori_dbo_Kullanici_KullaniciID">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Favori" EntitySet="Favori" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Gorsel_dbo_Arac_AracID" Association="Self.FK_dbo_Gorsel_dbo_Arac_AracID">
+            <End Role="Arac" EntitySet="Arac" />
+            <End Role="Gorsel" EntitySet="Gorsel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Ihale_dbo_Arac_AracID" Association="Self.FK_dbo_Ihale_dbo_Arac_AracID">
+            <End Role="Arac" EntitySet="Arac" />
+            <End Role="Ihale" EntitySet="Ihale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Ihale_dbo_IhaleStatu_IhaleStatuID" Association="Self.FK_dbo_Ihale_dbo_IhaleStatu_IhaleStatuID">
+            <End Role="IhaleStatu" EntitySet="IhaleStatu" />
+            <End Role="Ihale" EntitySet="Ihale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Ihale_dbo_Kullanici_KullaniciID" Association="Self.FK_dbo_Ihale_dbo_Kullanici_KullaniciID">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Ihale" EntitySet="Ihale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_IhaleFiyat_dbo_Ihale_IhaleID" Association="Self.FK_dbo_IhaleFiyat_dbo_Ihale_IhaleID">
+            <End Role="Ihale" EntitySet="Ihale" />
+            <End Role="IhaleFiyat" EntitySet="IhaleFiyat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_IhaleFiyatKullanici_dbo_IhaleFiyat_IhaleFiyatID" Association="Self.FK_dbo_IhaleFiyatKullanici_dbo_IhaleFiyat_IhaleFiyatID">
+            <End Role="IhaleFiyat" EntitySet="IhaleFiyat" />
+            <End Role="IhaleFiyatKullanici" EntitySet="IhaleFiyatKullanici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_IhaleFiyatKullanici_dbo_Kullanici_KullaniciID" Association="Self.FK_dbo_IhaleFiyatKullanici_dbo_Kullanici_KullaniciID">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="IhaleFiyatKullanici" EntitySet="IhaleFiyatKullanici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Kullanici_dbo_Paket_PaketID" Association="Self.FK_dbo_Kullanici_dbo_Paket_PaketID">
+            <End Role="Paket" EntitySet="Paket" />
+            <End Role="Kullanici" EntitySet="Kullanici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Kullanici_dbo_Rol_RolID" Association="Self.FK_dbo_Kullanici_dbo_Rol_RolID">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Kullanici" EntitySet="Kullanici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Kullanici_dbo_SirketBilgisi_SirketBilgisiID" Association="Self.FK_dbo_Kullanici_dbo_SirketBilgisi_SirketBilgisiID">
+            <End Role="SirketBilgisi" EntitySet="SirketBilgisi" />
+            <End Role="Kullanici" EntitySet="Kullanici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Mesaj_dbo_Kullanici_KullaniciID" Association="Self.FK_dbo_Mesaj_dbo_Kullanici_KullaniciID">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Mesaj" EntitySet="Mesaj" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SattigimArac_dbo_Arac_AracID" Association="Self.FK_dbo_SattigimArac_dbo_Arac_AracID">
+            <End Role="Arac" EntitySet="Arac" />
+            <End Role="SattigimArac" EntitySet="SattigimArac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SattigimArac_dbo_Kullanici_KullaniciID" Association="Self.FK_dbo_SattigimArac_dbo_Kullanici_KullaniciID">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="SattigimArac" EntitySet="SattigimArac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SirketBilgisi_dbo_FirmaTuru_FirmaTuruID" Association="Self.FK_dbo_SirketBilgisi_dbo_FirmaTuru_FirmaTuruID">
+            <End Role="FirmaTuru" EntitySet="FirmaTuru" />
+            <End Role="SirketBilgisi" EntitySet="SirketBilgisi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Statu_dbo_Kullanici_KullaniciID" Association="Self.FK_dbo_Statu_dbo_Kullanici_KullaniciID">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Statu" EntitySet="Statu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Statu_dbo_StatuTipi_StatuTipiID" Association="Self.FK_dbo_Statu_dbo_StatuTipi_StatuTipiID">
+            <End Role="StatuTipi" EntitySet="StatuTipi" />
+            <End Role="Statu" EntitySet="Statu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_TeklifVerdigimArac_dbo_IhaleFiyat_IhaleFiyatID" Association="Self.FK_dbo_TeklifVerdigimArac_dbo_IhaleFiyat_IhaleFiyatID">
+            <End Role="IhaleFiyat" EntitySet="IhaleFiyat" />
+            <End Role="TeklifVerdigimArac" EntitySet="TeklifVerdigimArac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_TeklifVerdigimArac_dbo_Kullanici_KullaniciID" Association="Self.FK_dbo_TeklifVerdigimArac_dbo_Kullanici_KullaniciID">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="TeklifVerdigimArac" EntitySet="TeklifVerdigimArac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_TramerBilgisi_dbo_Arac_AracID" Association="Self.FK_dbo_TramerBilgisi_dbo_Arac_AracID">
+            <End Role="Arac" EntitySet="Arac" />
+            <End Role="TramerBilgisi" EntitySet="TramerBilgisi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_TramerBilgisi_dbo_Parca_ParcaID" Association="Self.FK_dbo_TramerBilgisi_dbo_Parca_ParcaID">
+            <End Role="Parca" EntitySet="Parca" />
+            <End Role="TramerBilgisi" EntitySet="TramerBilgisi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_TramerBilgisi_dbo_TramerBilgisiDurum_TramerBilgisiDurumID" Association="Self.FK_dbo_TramerBilgisi_dbo_TramerBilgisiDurum_TramerBilgisiDurumID">
+            <End Role="TramerBilgisiDurum" EntitySet="TramerBilgisiDurum" />
+            <End Role="TramerBilgisi" EntitySet="TramerBilgisi" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="IkinciElAracModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="C__MigrationHistory">
+          <Key>
+            <PropertyRef Name="MigrationId" />
+            <PropertyRef Name="ContextKey" />
+          </Key>
+          <Property Name="MigrationId" Type="String" MaxLength="150" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContextKey" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Model" Type="Binary" MaxLength="Max" FixedLength="false" Nullable="false" />
+          <Property Name="ProductVersion" Type="String" MaxLength="32" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AldigimArac">
+          <Key>
+            <PropertyRef Name="AldigimAracId" />
+          </Key>
+          <Property Name="AldigimAracId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AldigimTarih" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" />
+          <Property Name="AracID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Arac" Relationship="Self.FK_dbo_AldigimArac_dbo_Arac_AracID" FromRole="AldigimArac" ToRole="Arac" />
+          <NavigationProperty Name="Kullanici" Relationship="Self.FK_dbo_AldigimArac_dbo_Kullanici_KullaniciID" FromRole="AldigimArac" ToRole="Kullanici" />
+        </EntityType>
+        <EntityType Name="Arac">
+          <Key>
+            <PropertyRef Name="AracID" />
+          </Key>
+          <Property Name="AracID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Yil" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Kilometre" Type="Int32" Nullable="false" />
+          <Property Name="AracOnaylimi" Type="Boolean" Nullable="false" />
+          <Property Name="KaydedilmeZamanı" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Plaka" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AracAktifmi" Type="Boolean" Nullable="false" />
+          <Property Name="AracFiyati" Type="Single" Nullable="false" />
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" />
+          <Property Name="AracModelID" Type="Int32" Nullable="false" />
+          <Property Name="YakıtTipiID" Type="Int32" Nullable="false" />
+          <Property Name="VitesTipiId" Type="Int32" Nullable="false" />
+          <Property Name="RenkID" Type="Int32" Nullable="false" />
+          <Property Name="IlanbilgisiID" Type="Int32" Nullable="false" />
+          <Property Name="AracMarkaID" Type="Int32" Nullable="false" />
+          <Property Name="StatuID" Type="Int32" />
+          <Property Name="KurumsalMİ" Type="Boolean" />
+          <NavigationProperty Name="AldigimArac" Relationship="Self.FK_dbo_AldigimArac_dbo_Arac_AracID" FromRole="Arac" ToRole="AldigimArac" />
+          <NavigationProperty Name="Statu" Relationship="Self.FK_Arac_Statu" FromRole="Arac" ToRole="Statu" />
+          <NavigationProperty Name="AracMarka" Relationship="Self.FK_dbo_Arac_dbo_AracMarka_AracMarkaID" FromRole="Arac" ToRole="AracMarka" />
+          <NavigationProperty Name="AracModel" Relationship="Self.FK_dbo_Arac_dbo_AracModel_AracModelID" FromRole="Arac" ToRole="AracModel" />
+          <NavigationProperty Name="Ilanbilgisi" Relationship="Self.FK_dbo_Arac_dbo_Ilanbilgisi_IlanbilgisiID" FromRole="Arac" ToRole="Ilanbilgisi" />
+          <NavigationProperty Name="Kullanici" Relationship="Self.FK_dbo_Arac_dbo_Kullanici_KullaniciID" FromRole="Arac" ToRole="Kullanici" />
+          <NavigationProperty Name="Renk" Relationship="Self.FK_dbo_Arac_dbo_Renk_RenkID" FromRole="Arac" ToRole="Renk" />
+          <NavigationProperty Name="VitesTipi" Relationship="Self.FK_dbo_Arac_dbo_VitesTipi_VitesTipiId" FromRole="Arac" ToRole="VitesTipi" />
+          <NavigationProperty Name="YakitTipi" Relationship="Self.FK_dbo_Arac_dbo_YakitTipi_YakıtTipiID" FromRole="Arac" ToRole="YakitTipi" />
+          <NavigationProperty Name="AracDonanim" Relationship="Self.FK_dbo_AracDonanim_dbo_Arac_AracID" FromRole="Arac" ToRole="AracDonanim" />
+          <NavigationProperty Name="AracSatis" Relationship="Self.FK_dbo_AracSatis_dbo_Arac_AracID" FromRole="Arac" ToRole="AracSatis" />
+          <NavigationProperty Name="Favori" Relationship="Self.FK_dbo_Favori_dbo_Arac_AracID" FromRole="Arac" ToRole="Favori" />
+          <NavigationProperty Name="Gorsel" Relationship="Self.FK_dbo_Gorsel_dbo_Arac_AracID" FromRole="Arac" ToRole="Gorsel" />
+          <NavigationProperty Name="Ihale" Relationship="Self.FK_dbo_Ihale_dbo_Arac_AracID" FromRole="Arac" ToRole="Ihale" />
+          <NavigationProperty Name="SattigimArac" Relationship="Self.FK_dbo_SattigimArac_dbo_Arac_AracID" FromRole="Arac" ToRole="SattigimArac" />
+          <NavigationProperty Name="TramerBilgisi" Relationship="Self.FK_dbo_TramerBilgisi_dbo_Arac_AracID" FromRole="Arac" ToRole="TramerBilgisi" />
+        </EntityType>
+        <EntityType Name="AracDonanim">
+          <Key>
+            <PropertyRef Name="AracDonanimID" />
+          </Key>
+          <Property Name="AracDonanimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AracID" Type="Int32" Nullable="false" />
+          <Property Name="DonanimID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Arac" Relationship="Self.FK_dbo_AracDonanim_dbo_Arac_AracID" FromRole="AracDonanim" ToRole="Arac" />
+          <NavigationProperty Name="Donanim" Relationship="Self.FK_dbo_AracDonanim_dbo_Donanim_DonanimID" FromRole="AracDonanim" ToRole="Donanim" />
+        </EntityType>
+        <EntityType Name="AracMarka">
+          <Key>
+            <PropertyRef Name="AracMarkaID" />
+          </Key>
+          <Property Name="AracMarkaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AracMarkaAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Arac" Relationship="Self.FK_dbo_Arac_dbo_AracMarka_AracMarkaID" FromRole="AracMarka" ToRole="Arac" />
+        </EntityType>
+        <EntityType Name="AracModel">
+          <Key>
+            <PropertyRef Name="AracModelID" />
+          </Key>
+          <Property Name="AracModelID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="AracModelAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="GovdeTipiID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Arac" Relationship="Self.FK_dbo_Arac_dbo_AracModel_AracModelID" FromRole="AracModel" ToRole="Arac" />
+          <NavigationProperty Name="GovdeTipi" Relationship="Self.FK_dbo_AracModel_dbo_GovdeTipi_GovdeTipiID" FromRole="AracModel" ToRole="GovdeTipi" />
+        </EntityType>
+        <EntityType Name="AracSatis">
+          <Key>
+            <PropertyRef Name="AracSatisID" />
+          </Key>
+          <Property Name="AracSatisID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SatisTarihi" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="SatinAlinanFiyat" Type="Single" Nullable="false" />
+          <Property Name="AracID" Type="Int32" Nullable="false" />
+          <Property Name="KullanıcıID" Type="Int32" Nullable="false" />
+          <Property Name="SatisTipiID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Arac" Relationship="Self.FK_dbo_AracSatis_dbo_Arac_AracID" FromRole="AracSatis" ToRole="Arac" />
+          <NavigationProperty Name="Kullanici" Relationship="Self.FK_dbo_AracSatis_dbo_Kullanici_KullanıcıID" FromRole="AracSatis" ToRole="Kullanici" />
+          <NavigationProperty Name="SatisTipi" Relationship="Self.FK_dbo_AracSatis_dbo_SatisTipi_SatisTipiID" FromRole="AracSatis" ToRole="SatisTipi" />
+        </EntityType>
+        <EntityType Name="Donanim">
+          <Key>
+            <PropertyRef Name="DonanimID" />
+          </Key>
+          <Property Name="DonanimID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="DonanimAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AracDonanim" Relationship="Self.FK_dbo_AracDonanim_dbo_Donanim_DonanimID" FromRole="Donanim" ToRole="AracDonanim" />
+        </EntityType>
+        <EntityType Name="ExpertizMerkez">
+          <Key>
+            <PropertyRef Name="ExpertizMerkezID" />
+          </Key>
+          <Property Name="ExpertizMerkezID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ExpertizMerkezAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ExpertizMerkezAdresi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ExpertizMerkezTelefonu" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ExpertizMerkezMaili" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Favori">
+          <Key>
+            <PropertyRef Name="FavoriId" />
+          </Key>
+          <Property Name="FavoriId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" />
+          <Property Name="AracID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Arac" Relationship="Self.FK_dbo_Favori_dbo_Arac_AracID" FromRole="Favori" ToRole="Arac" />
+          <NavigationProperty Name="Kullanici" Relationship="Self.FK_dbo_Favori_dbo_Kullanici_KullaniciID" FromRole="Favori" ToRole="Kullanici" />
+        </EntityType>
+        <EntityType Name="FirmaTuru">
+          <Key>
+            <PropertyRef Name="FirmaTuruID" />
+          </Key>
+          <Property Name="FirmaTuruID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FiirmaTuruAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="SirketBilgisi" Relationship="Self.FK_dbo_SirketBilgisi_dbo_FirmaTuru_FirmaTuruID" FromRole="FirmaTuru" ToRole="SirketBilgisi" />
+        </EntityType>
+        <EntityType Name="Gorsel">
+          <Key>
+            <PropertyRef Name="GorselID" />
+          </Key>
+          <Property Name="GorselID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GorselAdresi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AracID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Arac" Relationship="Self.FK_dbo_Gorsel_dbo_Arac_AracID" FromRole="Gorsel" ToRole="Arac" />
+        </EntityType>
+        <EntityType Name="GovdeTipi">
+          <Key>
+            <PropertyRef Name="GovdeTipiID" />
+          </Key>
+          <Property Name="GovdeTipiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GovdeTipiAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AracModel" Relationship="Self.FK_dbo_AracModel_dbo_GovdeTipi_GovdeTipiID" FromRole="GovdeTipi" ToRole="AracModel" />
+        </EntityType>
+        <EntityType Name="Ihale">
+          <Key>
+            <PropertyRef Name="IhaleID" />
+          </Key>
+          <Property Name="IhaleID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IhaleAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IhaleBaslangicTarihi" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IhaleBitisTarihi" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="IhaleBaslangicFiyati" Type="Single" Nullable="false" />
+          <Property Name="MaxAlimFiyati" Type="Single" Nullable="false" />
+          <Property Name="KurumsalMi" Type="Boolean" Nullable="false" />
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" />
+          <Property Name="AracID" Type="Int32" Nullable="false" />
+          <Property Name="IhaleStatuID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Arac" Relationship="Self.FK_dbo_Ihale_dbo_Arac_AracID" FromRole="Ihale" ToRole="Arac" />
+          <NavigationProperty Name="IhaleStatu" Relationship="Self.FK_dbo_Ihale_dbo_IhaleStatu_IhaleStatuID" FromRole="Ihale" ToRole="IhaleStatu" />
+          <NavigationProperty Name="Kullanici" Relationship="Self.FK_dbo_Ihale_dbo_Kullanici_KullaniciID" FromRole="Ihale" ToRole="Kullanici" />
+          <NavigationProperty Name="IhaleFiyat" Relationship="Self.FK_dbo_IhaleFiyat_dbo_Ihale_IhaleID" FromRole="Ihale" ToRole="IhaleFiyat" />
+        </EntityType>
+        <EntityType Name="IhaleFiyat">
+          <Key>
+            <PropertyRef Name="IhaleFiyatID" />
+          </Key>
+          <Property Name="IhaleFiyatID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Fiyat" Type="Single" Nullable="false" />
+          <Property Name="SiraNo" Type="Int32" Nullable="false" />
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" />
+          <Property Name="IhaleID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Ihale" Relationship="Self.FK_dbo_IhaleFiyat_dbo_Ihale_IhaleID" FromRole="IhaleFiyat" ToRole="Ihale" />
+          <NavigationProperty Name="IhaleFiyatKullanici" Relationship="Self.FK_dbo_IhaleFiyatKullanici_dbo_IhaleFiyat_IhaleFiyatID" FromRole="IhaleFiyat" ToRole="IhaleFiyatKullanici" />
+          <NavigationProperty Name="TeklifVerdigimArac" Relationship="Self.FK_dbo_TeklifVerdigimArac_dbo_IhaleFiyat_IhaleFiyatID" FromRole="IhaleFiyat" ToRole="TeklifVerdigimArac" />
+        </EntityType>
+        <EntityType Name="IhaleFiyatKullanici">
+          <Key>
+            <PropertyRef Name="IhaleFiyatKullaniciID" />
+          </Key>
+          <Property Name="IhaleFiyatKullaniciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" />
+          <Property Name="IhaleFiyatID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="IhaleFiyat" Relationship="Self.FK_dbo_IhaleFiyatKullanici_dbo_IhaleFiyat_IhaleFiyatID" FromRole="IhaleFiyatKullanici" ToRole="IhaleFiyat" />
+          <NavigationProperty Name="Kullanici" Relationship="Self.FK_dbo_IhaleFiyatKullanici_dbo_Kullanici_KullaniciID" FromRole="IhaleFiyatKullanici" ToRole="Kullanici" />
+        </EntityType>
+        <EntityType Name="IhaleStatu">
+          <Key>
+            <PropertyRef Name="IhaleStatuID" />
+          </Key>
+          <Property Name="IhaleStatuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IhaleStatuAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Ihale" Relationship="Self.FK_dbo_Ihale_dbo_IhaleStatu_IhaleStatuID" FromRole="IhaleStatu" ToRole="Ihale" />
+        </EntityType>
+        <EntityType Name="Ilanbilgisi">
+          <Key>
+            <PropertyRef Name="IlanbilgisiID" />
+          </Key>
+          <Property Name="IlanbilgisiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="IlanBasligi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IlanAciklama" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Arac" Relationship="Self.FK_dbo_Arac_dbo_Ilanbilgisi_IlanbilgisiID" FromRole="Ilanbilgisi" ToRole="Arac" />
+        </EntityType>
+        <EntityType Name="Komisyon">
+          <Key>
+            <PropertyRef Name="KomisyonID" />
+          </Key>
+          <Property Name="KomisyonID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BaslangicTarihi" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BitisTarihi" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MaxFiyat" Type="Single" Nullable="false" />
+          <Property Name="MinFiyat" Type="Single" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Kullanici">
+          <Key>
+            <PropertyRef Name="KullaniciID" />
+          </Key>
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="AdVeSoyad" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Telefon" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Mail" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="KullaniciAktifmi" Type="Boolean" Nullable="false" />
+          <Property Name="Sifre" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ToplamIhaleAracSayisi" Type="Int32" Nullable="false" />
+          <Property Name="KullaniciOnaylimi" Type="Boolean" Nullable="false" />
+          <Property Name="KVKKTiklimi" Type="Boolean" Nullable="false" />
+          <Property Name="RolID" Type="Int32" Nullable="false" />
+          <Property Name="PaketID" Type="Int32" Nullable="false" />
+          <Property Name="SirketBilgisiID" Type="Int32" Nullable="false" />
+          <Property Name="KurumsalMi" Type="Boolean" />
+          <NavigationProperty Name="AldigimArac" Relationship="Self.FK_dbo_AldigimArac_dbo_Kullanici_KullaniciID" FromRole="Kullanici" ToRole="AldigimArac" />
+          <NavigationProperty Name="Arac" Relationship="Self.FK_dbo_Arac_dbo_Kullanici_KullaniciID" FromRole="Kullanici" ToRole="Arac" />
+          <NavigationProperty Name="AracSatis" Relationship="Self.FK_dbo_AracSatis_dbo_Kullanici_KullanıcıID" FromRole="Kullanici" ToRole="AracSatis" />
+          <NavigationProperty Name="Favori" Relationship="Self.FK_dbo_Favori_dbo_Kullanici_KullaniciID" FromRole="Kullanici" ToRole="Favori" />
+          <NavigationProperty Name="Ihale" Relationship="Self.FK_dbo_Ihale_dbo_Kullanici_KullaniciID" FromRole="Kullanici" ToRole="Ihale" />
+          <NavigationProperty Name="IhaleFiyatKullanici" Relationship="Self.FK_dbo_IhaleFiyatKullanici_dbo_Kullanici_KullaniciID" FromRole="Kullanici" ToRole="IhaleFiyatKullanici" />
+          <NavigationProperty Name="Paket" Relationship="Self.FK_dbo_Kullanici_dbo_Paket_PaketID" FromRole="Kullanici" ToRole="Paket" />
+          <NavigationProperty Name="Rol" Relationship="Self.FK_dbo_Kullanici_dbo_Rol_RolID" FromRole="Kullanici" ToRole="Rol" />
+          <NavigationProperty Name="SirketBilgisi" Relationship="Self.FK_dbo_Kullanici_dbo_SirketBilgisi_SirketBilgisiID" FromRole="Kullanici" ToRole="SirketBilgisi" />
+          <NavigationProperty Name="Mesaj" Relationship="Self.FK_dbo_Mesaj_dbo_Kullanici_KullaniciID" FromRole="Kullanici" ToRole="Mesaj" />
+          <NavigationProperty Name="SattigimArac" Relationship="Self.FK_dbo_SattigimArac_dbo_Kullanici_KullaniciID" FromRole="Kullanici" ToRole="SattigimArac" />
+          <NavigationProperty Name="Statu" Relationship="Self.FK_dbo_Statu_dbo_Kullanici_KullaniciID" FromRole="Kullanici" ToRole="Statu" />
+          <NavigationProperty Name="TeklifVerdigimArac" Relationship="Self.FK_dbo_TeklifVerdigimArac_dbo_Kullanici_KullaniciID" FromRole="Kullanici" ToRole="TeklifVerdigimArac" />
+        </EntityType>
+        <EntityType Name="Mesaj">
+          <Key>
+            <PropertyRef Name="MesajID" />
+          </Key>
+          <Property Name="MesajID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="MesajIcerik" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Kullanici" Relationship="Self.FK_dbo_Mesaj_dbo_Kullanici_KullaniciID" FromRole="Mesaj" ToRole="Kullanici" />
+        </EntityType>
+        <EntityType Name="NoterUcret">
+          <Key>
+            <PropertyRef Name="NoterUcretID" />
+          </Key>
+          <Property Name="NoterUcretID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="BaslangicTarihi" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="BitisTarihi" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Ucret" Type="Single" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Paket">
+          <Key>
+            <PropertyRef Name="PaketID" />
+          </Key>
+          <Property Name="PaketID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PaketAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IhaledekiMaxAracSayasi" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Kullanici" Relationship="Self.FK_dbo_Kullanici_dbo_Paket_PaketID" FromRole="Paket" ToRole="Kullanici" />
+        </EntityType>
+        <EntityType Name="Parca">
+          <Key>
+            <PropertyRef Name="ParcaID" />
+          </Key>
+          <Property Name="ParcaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ParcaAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TramerBilgisi" Relationship="Self.FK_dbo_TramerBilgisi_dbo_Parca_ParcaID" FromRole="Parca" ToRole="TramerBilgisi" />
+        </EntityType>
+        <EntityType Name="Renk">
+          <Key>
+            <PropertyRef Name="RenkID" />
+          </Key>
+          <Property Name="RenkID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RenkAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Arac" Relationship="Self.FK_dbo_Arac_dbo_Renk_RenkID" FromRole="Renk" ToRole="Arac" />
+        </EntityType>
+        <EntityType Name="Rol">
+          <Key>
+            <PropertyRef Name="RolID" />
+          </Key>
+          <Property Name="RolID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RolAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Kullanici" Relationship="Self.FK_dbo_Kullanici_dbo_Rol_RolID" FromRole="Rol" ToRole="Kullanici" />
+        </EntityType>
+        <EntityType Name="SatisTipi">
+          <Key>
+            <PropertyRef Name="SatisTipiID" />
+          </Key>
+          <Property Name="SatisTipiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SatisTipiAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="AracSatis" Relationship="Self.FK_dbo_AracSatis_dbo_SatisTipi_SatisTipiID" FromRole="SatisTipi" ToRole="AracSatis" />
+        </EntityType>
+        <EntityType Name="SattigimArac">
+          <Key>
+            <PropertyRef Name="SattigimAracId" />
+          </Key>
+          <Property Name="SattigimAracId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SattigimTarih" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" />
+          <Property Name="AracID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Arac" Relationship="Self.FK_dbo_SattigimArac_dbo_Arac_AracID" FromRole="SattigimArac" ToRole="Arac" />
+          <NavigationProperty Name="Kullanici" Relationship="Self.FK_dbo_SattigimArac_dbo_Kullanici_KullaniciID" FromRole="SattigimArac" ToRole="Kullanici" />
+        </EntityType>
+        <EntityType Name="SirketBilgisi">
+          <Key>
+            <PropertyRef Name="SirketBİlgisiID" />
+          </Key>
+          <Property Name="SirketBİlgisiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="FirmaAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Sehir" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Ilce" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Adres" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="FirmaTuruID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="FirmaTuru" Relationship="Self.FK_dbo_SirketBilgisi_dbo_FirmaTuru_FirmaTuruID" FromRole="SirketBilgisi" ToRole="FirmaTuru" />
+          <NavigationProperty Name="Kullanici" Relationship="Self.FK_dbo_Kullanici_dbo_SirketBilgisi_SirketBilgisiID" FromRole="SirketBilgisi" ToRole="Kullanici" />
+        </EntityType>
+        <EntityType Name="Statu">
+          <Key>
+            <PropertyRef Name="StatuID" />
+          </Key>
+          <Property Name="StatuID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Tarih" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="StatuTipiID" Type="Int32" Nullable="false" />
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Arac" Relationship="Self.FK_Arac_Statu" FromRole="Statu" ToRole="Arac" />
+          <NavigationProperty Name="Kullanici" Relationship="Self.FK_dbo_Statu_dbo_Kullanici_KullaniciID" FromRole="Statu" ToRole="Kullanici" />
+          <NavigationProperty Name="StatuTipi" Relationship="Self.FK_dbo_Statu_dbo_StatuTipi_StatuTipiID" FromRole="Statu" ToRole="StatuTipi" />
+        </EntityType>
+        <EntityType Name="StatuTipi">
+          <Key>
+            <PropertyRef Name="StatuTipiID" />
+          </Key>
+          <Property Name="StatuTipiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="StatuTipiAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Statu" Relationship="Self.FK_dbo_Statu_dbo_StatuTipi_StatuTipiID" FromRole="StatuTipi" ToRole="Statu" />
+        </EntityType>
+        <EntityType Name="sysdiagrams">
+          <Key>
+            <PropertyRef Name="diagram_id" />
+          </Key>
+          <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="principal_id" Type="Int32" Nullable="false" />
+          <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="version" Type="Int32" />
+          <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="TeklifVerdigimArac">
+          <Key>
+            <PropertyRef Name="TeklifVerdigimAracId" />
+          </Key>
+          <Property Name="TeklifVerdigimAracId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KullaniciID" Type="Int32" Nullable="false" />
+          <Property Name="IhaleFiyatID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="IhaleFiyat" Relationship="Self.FK_dbo_TeklifVerdigimArac_dbo_IhaleFiyat_IhaleFiyatID" FromRole="TeklifVerdigimArac" ToRole="IhaleFiyat" />
+          <NavigationProperty Name="Kullanici" Relationship="Self.FK_dbo_TeklifVerdigimArac_dbo_Kullanici_KullaniciID" FromRole="TeklifVerdigimArac" ToRole="Kullanici" />
+        </EntityType>
+        <EntityType Name="TramerBilgisi">
+          <Key>
+            <PropertyRef Name="TramerBilgisiID" />
+          </Key>
+          <Property Name="TramerBilgisiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TramerBilgisiDurumID" Type="Int32" Nullable="false" />
+          <Property Name="ParcaID" Type="Int32" Nullable="false" />
+          <Property Name="AracID" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="Arac" Relationship="Self.FK_dbo_TramerBilgisi_dbo_Arac_AracID" FromRole="TramerBilgisi" ToRole="Arac" />
+          <NavigationProperty Name="Parca" Relationship="Self.FK_dbo_TramerBilgisi_dbo_Parca_ParcaID" FromRole="TramerBilgisi" ToRole="Parca" />
+          <NavigationProperty Name="TramerBilgisiDurum" Relationship="Self.FK_dbo_TramerBilgisi_dbo_TramerBilgisiDurum_TramerBilgisiDurumID" FromRole="TramerBilgisi" ToRole="TramerBilgisiDurum" />
+        </EntityType>
+        <EntityType Name="TramerBilgisiDurum">
+          <Key>
+            <PropertyRef Name="TramerBilgisiDurumID" />
+          </Key>
+          <Property Name="TramerBilgisiDurumID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TramerBilgisiDurumAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="TramerBilgisi" Relationship="Self.FK_dbo_TramerBilgisi_dbo_TramerBilgisiDurum_TramerBilgisiDurumID" FromRole="TramerBilgisiDurum" ToRole="TramerBilgisi" />
+        </EntityType>
+        <EntityType Name="VitesTipi">
+          <Key>
+            <PropertyRef Name="VitesTipiiID" />
+          </Key>
+          <Property Name="VitesTipiiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="VitesTipiAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Arac" Relationship="Self.FK_dbo_Arac_dbo_VitesTipi_VitesTipiId" FromRole="VitesTipi" ToRole="Arac" />
+        </EntityType>
+        <EntityType Name="YakitTipi">
+          <Key>
+            <PropertyRef Name="YakitTipiID" />
+          </Key>
+          <Property Name="YakitTipiID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="YakitTipiAdi" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Arac" Relationship="Self.FK_dbo_Arac_dbo_YakitTipi_YakıtTipiID" FromRole="YakitTipi" ToRole="Arac" />
+        </EntityType>
+        <Association Name="FK_dbo_AldigimArac_dbo_Arac_AracID">
+          <End Role="Arac" Type="Self.Arac" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AldigimArac" Type="Self.AldigimArac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arac">
+              <PropertyRef Name="AracID" />
+            </Principal>
+            <Dependent Role="AldigimArac">
+              <PropertyRef Name="AracID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AldigimArac_dbo_Kullanici_KullaniciID">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AldigimArac" Type="Self.AldigimArac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="AldigimArac">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Arac_Statu">
+          <End Role="Statu" Type="Self.Statu" Multiplicity="0..1" />
+          <End Role="Arac" Type="Self.Arac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Statu">
+              <PropertyRef Name="StatuID" />
+            </Principal>
+            <Dependent Role="Arac">
+              <PropertyRef Name="StatuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Arac_dbo_AracMarka_AracMarkaID">
+          <End Role="AracMarka" Type="Self.AracMarka" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Arac" Type="Self.Arac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AracMarka">
+              <PropertyRef Name="AracMarkaID" />
+            </Principal>
+            <Dependent Role="Arac">
+              <PropertyRef Name="AracMarkaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Arac_dbo_AracModel_AracModelID">
+          <End Role="AracModel" Type="Self.AracModel" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Arac" Type="Self.Arac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AracModel">
+              <PropertyRef Name="AracModelID" />
+            </Principal>
+            <Dependent Role="Arac">
+              <PropertyRef Name="AracModelID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Arac_dbo_Ilanbilgisi_IlanbilgisiID">
+          <End Role="Ilanbilgisi" Type="Self.Ilanbilgisi" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Arac" Type="Self.Arac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ilanbilgisi">
+              <PropertyRef Name="IlanbilgisiID" />
+            </Principal>
+            <Dependent Role="Arac">
+              <PropertyRef Name="IlanbilgisiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Arac_dbo_Kullanici_KullaniciID">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1" />
+          <End Role="Arac" Type="Self.Arac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="Arac">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Arac_dbo_Renk_RenkID">
+          <End Role="Renk" Type="Self.Renk" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Arac" Type="Self.Arac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Renk">
+              <PropertyRef Name="RenkID" />
+            </Principal>
+            <Dependent Role="Arac">
+              <PropertyRef Name="RenkID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Arac_dbo_VitesTipi_VitesTipiId">
+          <End Role="VitesTipi" Type="Self.VitesTipi" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Arac" Type="Self.Arac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VitesTipi">
+              <PropertyRef Name="VitesTipiiID" />
+            </Principal>
+            <Dependent Role="Arac">
+              <PropertyRef Name="VitesTipiId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Arac_dbo_YakitTipi_YakıtTipiID">
+          <End Role="YakitTipi" Type="Self.YakitTipi" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Arac" Type="Self.Arac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="YakitTipi">
+              <PropertyRef Name="YakitTipiID" />
+            </Principal>
+            <Dependent Role="Arac">
+              <PropertyRef Name="YakıtTipiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AracDonanim_dbo_Arac_AracID">
+          <End Role="Arac" Type="Self.Arac" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AracDonanim" Type="Self.AracDonanim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arac">
+              <PropertyRef Name="AracID" />
+            </Principal>
+            <Dependent Role="AracDonanim">
+              <PropertyRef Name="AracID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AracSatis_dbo_Arac_AracID">
+          <End Role="Arac" Type="Self.Arac" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AracSatis" Type="Self.AracSatis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arac">
+              <PropertyRef Name="AracID" />
+            </Principal>
+            <Dependent Role="AracSatis">
+              <PropertyRef Name="AracID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Favori_dbo_Arac_AracID">
+          <End Role="Arac" Type="Self.Arac" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Favori" Type="Self.Favori" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arac">
+              <PropertyRef Name="AracID" />
+            </Principal>
+            <Dependent Role="Favori">
+              <PropertyRef Name="AracID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Gorsel_dbo_Arac_AracID">
+          <End Role="Arac" Type="Self.Arac" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Gorsel" Type="Self.Gorsel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arac">
+              <PropertyRef Name="AracID" />
+            </Principal>
+            <Dependent Role="Gorsel">
+              <PropertyRef Name="AracID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Ihale_dbo_Arac_AracID">
+          <End Role="Arac" Type="Self.Arac" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ihale" Type="Self.Ihale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arac">
+              <PropertyRef Name="AracID" />
+            </Principal>
+            <Dependent Role="Ihale">
+              <PropertyRef Name="AracID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SattigimArac_dbo_Arac_AracID">
+          <End Role="Arac" Type="Self.Arac" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SattigimArac" Type="Self.SattigimArac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arac">
+              <PropertyRef Name="AracID" />
+            </Principal>
+            <Dependent Role="SattigimArac">
+              <PropertyRef Name="AracID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_TramerBilgisi_dbo_Arac_AracID">
+          <End Role="Arac" Type="Self.Arac" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TramerBilgisi" Type="Self.TramerBilgisi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Arac">
+              <PropertyRef Name="AracID" />
+            </Principal>
+            <Dependent Role="TramerBilgisi">
+              <PropertyRef Name="AracID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AracDonanim_dbo_Donanim_DonanimID">
+          <End Role="Donanim" Type="Self.Donanim" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AracDonanim" Type="Self.AracDonanim" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Donanim">
+              <PropertyRef Name="DonanimID" />
+            </Principal>
+            <Dependent Role="AracDonanim">
+              <PropertyRef Name="DonanimID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AracModel_dbo_GovdeTipi_GovdeTipiID">
+          <End Role="GovdeTipi" Type="Self.GovdeTipi" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AracModel" Type="Self.AracModel" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GovdeTipi">
+              <PropertyRef Name="GovdeTipiID" />
+            </Principal>
+            <Dependent Role="AracModel">
+              <PropertyRef Name="GovdeTipiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AracSatis_dbo_Kullanici_KullanıcıID">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AracSatis" Type="Self.AracSatis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="AracSatis">
+              <PropertyRef Name="KullanıcıID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AracSatis_dbo_SatisTipi_SatisTipiID">
+          <End Role="SatisTipi" Type="Self.SatisTipi" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AracSatis" Type="Self.AracSatis" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SatisTipi">
+              <PropertyRef Name="SatisTipiID" />
+            </Principal>
+            <Dependent Role="AracSatis">
+              <PropertyRef Name="SatisTipiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Favori_dbo_Kullanici_KullaniciID">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Favori" Type="Self.Favori" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="Favori">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SirketBilgisi_dbo_FirmaTuru_FirmaTuruID">
+          <End Role="FirmaTuru" Type="Self.FirmaTuru" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SirketBilgisi" Type="Self.SirketBilgisi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="FirmaTuru">
+              <PropertyRef Name="FirmaTuruID" />
+            </Principal>
+            <Dependent Role="SirketBilgisi">
+              <PropertyRef Name="FirmaTuruID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Ihale_dbo_IhaleStatu_IhaleStatuID">
+          <End Role="IhaleStatu" Type="Self.IhaleStatu" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ihale" Type="Self.Ihale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IhaleStatu">
+              <PropertyRef Name="IhaleStatuID" />
+            </Principal>
+            <Dependent Role="Ihale">
+              <PropertyRef Name="IhaleStatuID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Ihale_dbo_Kullanici_KullaniciID">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Ihale" Type="Self.Ihale" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="Ihale">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_IhaleFiyat_dbo_Ihale_IhaleID">
+          <End Role="Ihale" Type="Self.Ihale" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="IhaleFiyat" Type="Self.IhaleFiyat" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Ihale">
+              <PropertyRef Name="IhaleID" />
+            </Principal>
+            <Dependent Role="IhaleFiyat">
+              <PropertyRef Name="IhaleID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_IhaleFiyatKullanici_dbo_IhaleFiyat_IhaleFiyatID">
+          <End Role="IhaleFiyat" Type="Self.IhaleFiyat" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="IhaleFiyatKullanici" Type="Self.IhaleFiyatKullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IhaleFiyat">
+              <PropertyRef Name="IhaleFiyatID" />
+            </Principal>
+            <Dependent Role="IhaleFiyatKullanici">
+              <PropertyRef Name="IhaleFiyatID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_TeklifVerdigimArac_dbo_IhaleFiyat_IhaleFiyatID">
+          <End Role="IhaleFiyat" Type="Self.IhaleFiyat" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TeklifVerdigimArac" Type="Self.TeklifVerdigimArac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="IhaleFiyat">
+              <PropertyRef Name="IhaleFiyatID" />
+            </Principal>
+            <Dependent Role="TeklifVerdigimArac">
+              <PropertyRef Name="IhaleFiyatID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_IhaleFiyatKullanici_dbo_Kullanici_KullaniciID">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1" />
+          <End Role="IhaleFiyatKullanici" Type="Self.IhaleFiyatKullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="IhaleFiyatKullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Kullanici_dbo_Paket_PaketID">
+          <End Role="Paket" Type="Self.Paket" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Paket">
+              <PropertyRef Name="PaketID" />
+            </Principal>
+            <Dependent Role="Kullanici">
+              <PropertyRef Name="PaketID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Kullanici_dbo_Rol_RolID">
+          <End Role="Rol" Type="Self.Rol" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rol">
+              <PropertyRef Name="RolID" />
+            </Principal>
+            <Dependent Role="Kullanici">
+              <PropertyRef Name="RolID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Kullanici_dbo_SirketBilgisi_SirketBilgisiID">
+          <End Role="SirketBilgisi" Type="Self.SirketBilgisi" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="SirketBilgisi">
+              <PropertyRef Name="SirketBİlgisiID" />
+            </Principal>
+            <Dependent Role="Kullanici">
+              <PropertyRef Name="SirketBilgisiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Mesaj_dbo_Kullanici_KullaniciID">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Mesaj" Type="Self.Mesaj" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="Mesaj">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_SattigimArac_dbo_Kullanici_KullaniciID">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="SattigimArac" Type="Self.SattigimArac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="SattigimArac">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Statu_dbo_Kullanici_KullaniciID">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Statu" Type="Self.Statu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="Statu">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_TeklifVerdigimArac_dbo_Kullanici_KullaniciID">
+          <End Role="Kullanici" Type="Self.Kullanici" Multiplicity="1" />
+          <End Role="TeklifVerdigimArac" Type="Self.TeklifVerdigimArac" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kullanici">
+              <PropertyRef Name="KullaniciID" />
+            </Principal>
+            <Dependent Role="TeklifVerdigimArac">
+              <PropertyRef Name="KullaniciID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_TramerBilgisi_dbo_Parca_ParcaID">
+          <End Role="Parca" Type="Self.Parca" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TramerBilgisi" Type="Self.TramerBilgisi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Parca">
+              <PropertyRef Name="ParcaID" />
+            </Principal>
+            <Dependent Role="TramerBilgisi">
+              <PropertyRef Name="ParcaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_Statu_dbo_StatuTipi_StatuTipiID">
+          <End Role="StatuTipi" Type="Self.StatuTipi" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="Statu" Type="Self.Statu" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="StatuTipi">
+              <PropertyRef Name="StatuTipiID" />
+            </Principal>
+            <Dependent Role="Statu">
+              <PropertyRef Name="StatuTipiID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_TramerBilgisi_dbo_TramerBilgisiDurum_TramerBilgisiDurumID">
+          <End Role="TramerBilgisiDurum" Type="Self.TramerBilgisiDurum" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="TramerBilgisi" Type="Self.TramerBilgisi" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="TramerBilgisiDurum">
+              <PropertyRef Name="TramerBilgisiDurumID" />
+            </Principal>
+            <Dependent Role="TramerBilgisi">
+              <PropertyRef Name="TramerBilgisiDurumID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="IkinciElAracEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="C__MigrationHistory" EntityType="Self.C__MigrationHistory" />
+          <EntitySet Name="AldigimArac" EntityType="Self.AldigimArac" />
+          <EntitySet Name="Arac" EntityType="Self.Arac" />
+          <EntitySet Name="AracDonanim" EntityType="Self.AracDonanim" />
+          <EntitySet Name="AracMarka" EntityType="Self.AracMarka" />
+          <EntitySet Name="AracModel" EntityType="Self.AracModel" />
+          <EntitySet Name="AracSatis" EntityType="Self.AracSatis" />
+          <EntitySet Name="Donanim" EntityType="Self.Donanim" />
+          <EntitySet Name="ExpertizMerkez" EntityType="Self.ExpertizMerkez" />
+          <EntitySet Name="Favori" EntityType="Self.Favori" />
+          <EntitySet Name="FirmaTuru" EntityType="Self.FirmaTuru" />
+          <EntitySet Name="Gorsel" EntityType="Self.Gorsel" />
+          <EntitySet Name="GovdeTipi" EntityType="Self.GovdeTipi" />
+          <EntitySet Name="Ihale" EntityType="Self.Ihale" />
+          <EntitySet Name="IhaleFiyat" EntityType="Self.IhaleFiyat" />
+          <EntitySet Name="IhaleFiyatKullanici" EntityType="Self.IhaleFiyatKullanici" />
+          <EntitySet Name="IhaleStatu" EntityType="Self.IhaleStatu" />
+          <EntitySet Name="Ilanbilgisi" EntityType="Self.Ilanbilgisi" />
+          <EntitySet Name="Komisyon" EntityType="Self.Komisyon" />
+          <EntitySet Name="Kullanici" EntityType="Self.Kullanici" />
+          <EntitySet Name="Mesaj" EntityType="Self.Mesaj" />
+          <EntitySet Name="NoterUcret" EntityType="Self.NoterUcret" />
+          <EntitySet Name="Paket" EntityType="Self.Paket" />
+          <EntitySet Name="Parca" EntityType="Self.Parca" />
+          <EntitySet Name="Renk" EntityType="Self.Renk" />
+          <EntitySet Name="Rol" EntityType="Self.Rol" />
+          <EntitySet Name="SatisTipi" EntityType="Self.SatisTipi" />
+          <EntitySet Name="SattigimArac" EntityType="Self.SattigimArac" />
+          <EntitySet Name="SirketBilgisi" EntityType="Self.SirketBilgisi" />
+          <EntitySet Name="Statu" EntityType="Self.Statu" />
+          <EntitySet Name="StatuTipi" EntityType="Self.StatuTipi" />
+          <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
+          <EntitySet Name="TeklifVerdigimArac" EntityType="Self.TeklifVerdigimArac" />
+          <EntitySet Name="TramerBilgisi" EntityType="Self.TramerBilgisi" />
+          <EntitySet Name="TramerBilgisiDurum" EntityType="Self.TramerBilgisiDurum" />
+          <EntitySet Name="VitesTipi" EntityType="Self.VitesTipi" />
+          <EntitySet Name="YakitTipi" EntityType="Self.YakitTipi" />
+          <AssociationSet Name="FK_dbo_AldigimArac_dbo_Arac_AracID" Association="Self.FK_dbo_AldigimArac_dbo_Arac_AracID">
+            <End Role="Arac" EntitySet="Arac" />
+            <End Role="AldigimArac" EntitySet="AldigimArac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AldigimArac_dbo_Kullanici_KullaniciID" Association="Self.FK_dbo_AldigimArac_dbo_Kullanici_KullaniciID">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="AldigimArac" EntitySet="AldigimArac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Arac_Statu" Association="Self.FK_Arac_Statu">
+            <End Role="Statu" EntitySet="Statu" />
+            <End Role="Arac" EntitySet="Arac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Arac_dbo_AracMarka_AracMarkaID" Association="Self.FK_dbo_Arac_dbo_AracMarka_AracMarkaID">
+            <End Role="AracMarka" EntitySet="AracMarka" />
+            <End Role="Arac" EntitySet="Arac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Arac_dbo_AracModel_AracModelID" Association="Self.FK_dbo_Arac_dbo_AracModel_AracModelID">
+            <End Role="AracModel" EntitySet="AracModel" />
+            <End Role="Arac" EntitySet="Arac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Arac_dbo_Ilanbilgisi_IlanbilgisiID" Association="Self.FK_dbo_Arac_dbo_Ilanbilgisi_IlanbilgisiID">
+            <End Role="Ilanbilgisi" EntitySet="Ilanbilgisi" />
+            <End Role="Arac" EntitySet="Arac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Arac_dbo_Kullanici_KullaniciID" Association="Self.FK_dbo_Arac_dbo_Kullanici_KullaniciID">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Arac" EntitySet="Arac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Arac_dbo_Renk_RenkID" Association="Self.FK_dbo_Arac_dbo_Renk_RenkID">
+            <End Role="Renk" EntitySet="Renk" />
+            <End Role="Arac" EntitySet="Arac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Arac_dbo_VitesTipi_VitesTipiId" Association="Self.FK_dbo_Arac_dbo_VitesTipi_VitesTipiId">
+            <End Role="VitesTipi" EntitySet="VitesTipi" />
+            <End Role="Arac" EntitySet="Arac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Arac_dbo_YakitTipi_YakıtTipiID" Association="Self.FK_dbo_Arac_dbo_YakitTipi_YakıtTipiID">
+            <End Role="YakitTipi" EntitySet="YakitTipi" />
+            <End Role="Arac" EntitySet="Arac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AracDonanim_dbo_Arac_AracID" Association="Self.FK_dbo_AracDonanim_dbo_Arac_AracID">
+            <End Role="Arac" EntitySet="Arac" />
+            <End Role="AracDonanim" EntitySet="AracDonanim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AracSatis_dbo_Arac_AracID" Association="Self.FK_dbo_AracSatis_dbo_Arac_AracID">
+            <End Role="Arac" EntitySet="Arac" />
+            <End Role="AracSatis" EntitySet="AracSatis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Favori_dbo_Arac_AracID" Association="Self.FK_dbo_Favori_dbo_Arac_AracID">
+            <End Role="Arac" EntitySet="Arac" />
+            <End Role="Favori" EntitySet="Favori" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Gorsel_dbo_Arac_AracID" Association="Self.FK_dbo_Gorsel_dbo_Arac_AracID">
+            <End Role="Arac" EntitySet="Arac" />
+            <End Role="Gorsel" EntitySet="Gorsel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Ihale_dbo_Arac_AracID" Association="Self.FK_dbo_Ihale_dbo_Arac_AracID">
+            <End Role="Arac" EntitySet="Arac" />
+            <End Role="Ihale" EntitySet="Ihale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SattigimArac_dbo_Arac_AracID" Association="Self.FK_dbo_SattigimArac_dbo_Arac_AracID">
+            <End Role="Arac" EntitySet="Arac" />
+            <End Role="SattigimArac" EntitySet="SattigimArac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_TramerBilgisi_dbo_Arac_AracID" Association="Self.FK_dbo_TramerBilgisi_dbo_Arac_AracID">
+            <End Role="Arac" EntitySet="Arac" />
+            <End Role="TramerBilgisi" EntitySet="TramerBilgisi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AracDonanim_dbo_Donanim_DonanimID" Association="Self.FK_dbo_AracDonanim_dbo_Donanim_DonanimID">
+            <End Role="Donanim" EntitySet="Donanim" />
+            <End Role="AracDonanim" EntitySet="AracDonanim" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AracModel_dbo_GovdeTipi_GovdeTipiID" Association="Self.FK_dbo_AracModel_dbo_GovdeTipi_GovdeTipiID">
+            <End Role="GovdeTipi" EntitySet="GovdeTipi" />
+            <End Role="AracModel" EntitySet="AracModel" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AracSatis_dbo_Kullanici_KullanıcıID" Association="Self.FK_dbo_AracSatis_dbo_Kullanici_KullanıcıID">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="AracSatis" EntitySet="AracSatis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AracSatis_dbo_SatisTipi_SatisTipiID" Association="Self.FK_dbo_AracSatis_dbo_SatisTipi_SatisTipiID">
+            <End Role="SatisTipi" EntitySet="SatisTipi" />
+            <End Role="AracSatis" EntitySet="AracSatis" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Favori_dbo_Kullanici_KullaniciID" Association="Self.FK_dbo_Favori_dbo_Kullanici_KullaniciID">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Favori" EntitySet="Favori" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SirketBilgisi_dbo_FirmaTuru_FirmaTuruID" Association="Self.FK_dbo_SirketBilgisi_dbo_FirmaTuru_FirmaTuruID">
+            <End Role="FirmaTuru" EntitySet="FirmaTuru" />
+            <End Role="SirketBilgisi" EntitySet="SirketBilgisi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Ihale_dbo_IhaleStatu_IhaleStatuID" Association="Self.FK_dbo_Ihale_dbo_IhaleStatu_IhaleStatuID">
+            <End Role="IhaleStatu" EntitySet="IhaleStatu" />
+            <End Role="Ihale" EntitySet="Ihale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Ihale_dbo_Kullanici_KullaniciID" Association="Self.FK_dbo_Ihale_dbo_Kullanici_KullaniciID">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Ihale" EntitySet="Ihale" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_IhaleFiyat_dbo_Ihale_IhaleID" Association="Self.FK_dbo_IhaleFiyat_dbo_Ihale_IhaleID">
+            <End Role="Ihale" EntitySet="Ihale" />
+            <End Role="IhaleFiyat" EntitySet="IhaleFiyat" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_IhaleFiyatKullanici_dbo_IhaleFiyat_IhaleFiyatID" Association="Self.FK_dbo_IhaleFiyatKullanici_dbo_IhaleFiyat_IhaleFiyatID">
+            <End Role="IhaleFiyat" EntitySet="IhaleFiyat" />
+            <End Role="IhaleFiyatKullanici" EntitySet="IhaleFiyatKullanici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_TeklifVerdigimArac_dbo_IhaleFiyat_IhaleFiyatID" Association="Self.FK_dbo_TeklifVerdigimArac_dbo_IhaleFiyat_IhaleFiyatID">
+            <End Role="IhaleFiyat" EntitySet="IhaleFiyat" />
+            <End Role="TeklifVerdigimArac" EntitySet="TeklifVerdigimArac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_IhaleFiyatKullanici_dbo_Kullanici_KullaniciID" Association="Self.FK_dbo_IhaleFiyatKullanici_dbo_Kullanici_KullaniciID">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="IhaleFiyatKullanici" EntitySet="IhaleFiyatKullanici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Kullanici_dbo_Paket_PaketID" Association="Self.FK_dbo_Kullanici_dbo_Paket_PaketID">
+            <End Role="Paket" EntitySet="Paket" />
+            <End Role="Kullanici" EntitySet="Kullanici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Kullanici_dbo_Rol_RolID" Association="Self.FK_dbo_Kullanici_dbo_Rol_RolID">
+            <End Role="Rol" EntitySet="Rol" />
+            <End Role="Kullanici" EntitySet="Kullanici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Kullanici_dbo_SirketBilgisi_SirketBilgisiID" Association="Self.FK_dbo_Kullanici_dbo_SirketBilgisi_SirketBilgisiID">
+            <End Role="SirketBilgisi" EntitySet="SirketBilgisi" />
+            <End Role="Kullanici" EntitySet="Kullanici" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Mesaj_dbo_Kullanici_KullaniciID" Association="Self.FK_dbo_Mesaj_dbo_Kullanici_KullaniciID">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Mesaj" EntitySet="Mesaj" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_SattigimArac_dbo_Kullanici_KullaniciID" Association="Self.FK_dbo_SattigimArac_dbo_Kullanici_KullaniciID">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="SattigimArac" EntitySet="SattigimArac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Statu_dbo_Kullanici_KullaniciID" Association="Self.FK_dbo_Statu_dbo_Kullanici_KullaniciID">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="Statu" EntitySet="Statu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_TeklifVerdigimArac_dbo_Kullanici_KullaniciID" Association="Self.FK_dbo_TeklifVerdigimArac_dbo_Kullanici_KullaniciID">
+            <End Role="Kullanici" EntitySet="Kullanici" />
+            <End Role="TeklifVerdigimArac" EntitySet="TeklifVerdigimArac" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_TramerBilgisi_dbo_Parca_ParcaID" Association="Self.FK_dbo_TramerBilgisi_dbo_Parca_ParcaID">
+            <End Role="Parca" EntitySet="Parca" />
+            <End Role="TramerBilgisi" EntitySet="TramerBilgisi" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_Statu_dbo_StatuTipi_StatuTipiID" Association="Self.FK_dbo_Statu_dbo_StatuTipi_StatuTipiID">
+            <End Role="StatuTipi" EntitySet="StatuTipi" />
+            <End Role="Statu" EntitySet="Statu" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_TramerBilgisi_dbo_TramerBilgisiDurum_TramerBilgisiDurumID" Association="Self.FK_dbo_TramerBilgisi_dbo_TramerBilgisiDurum_TramerBilgisiDurumID">
+            <End Role="TramerBilgisiDurum" EntitySet="TramerBilgisiDurum" />
+            <End Role="TramerBilgisi" EntitySet="TramerBilgisi" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="IkinciElAracModelStoreContainer" CdmEntityContainer="IkinciElAracEntities">
+          <EntitySetMapping Name="C__MigrationHistory">
+            <EntityTypeMapping TypeName="IkinciElAracModel.C__MigrationHistory">
+              <MappingFragment StoreEntitySet="__MigrationHistory">
+                <ScalarProperty Name="MigrationId" ColumnName="MigrationId" />
+                <ScalarProperty Name="ContextKey" ColumnName="ContextKey" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="ProductVersion" ColumnName="ProductVersion" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AldigimArac">
+            <EntityTypeMapping TypeName="IkinciElAracModel.AldigimArac">
+              <MappingFragment StoreEntitySet="AldigimArac">
+                <ScalarProperty Name="AldigimAracId" ColumnName="AldigimAracId" />
+                <ScalarProperty Name="AldigimTarih" ColumnName="AldigimTarih" />
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="AracID" ColumnName="AracID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Arac">
+            <EntityTypeMapping TypeName="IkinciElAracModel.Arac">
+              <MappingFragment StoreEntitySet="Arac">
+                <ScalarProperty Name="AracID" ColumnName="AracID" />
+                <ScalarProperty Name="Yil" ColumnName="Yil" />
+                <ScalarProperty Name="Kilometre" ColumnName="Kilometre" />
+                <ScalarProperty Name="AracOnaylimi" ColumnName="AracOnaylimi" />
+                <ScalarProperty Name="KaydedilmeZamanı" ColumnName="KaydedilmeZamanı" />
+                <ScalarProperty Name="Plaka" ColumnName="Plaka" />
+                <ScalarProperty Name="AracAktifmi" ColumnName="AracAktifmi" />
+                <ScalarProperty Name="AracFiyati" ColumnName="AracFiyati" />
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="AracModelID" ColumnName="AracModelID" />
+                <ScalarProperty Name="YakıtTipiID" ColumnName="YakıtTipiID" />
+                <ScalarProperty Name="VitesTipiId" ColumnName="VitesTipiId" />
+                <ScalarProperty Name="RenkID" ColumnName="RenkID" />
+                <ScalarProperty Name="IlanbilgisiID" ColumnName="IlanbilgisiID" />
+                <ScalarProperty Name="AracMarkaID" ColumnName="AracMarkaID" />
+                <ScalarProperty Name="StatuID" ColumnName="StatuID" />
+                <ScalarProperty Name="KurumsalMİ" ColumnName="KurumsalMİ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AracDonanim">
+            <EntityTypeMapping TypeName="IkinciElAracModel.AracDonanim">
+              <MappingFragment StoreEntitySet="AracDonanim">
+                <ScalarProperty Name="AracDonanimID" ColumnName="AracDonanimID" />
+                <ScalarProperty Name="AracID" ColumnName="AracID" />
+                <ScalarProperty Name="DonanimID" ColumnName="DonanimID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AracMarka">
+            <EntityTypeMapping TypeName="IkinciElAracModel.AracMarka">
+              <MappingFragment StoreEntitySet="AracMarka">
+                <ScalarProperty Name="AracMarkaID" ColumnName="AracMarkaID" />
+                <ScalarProperty Name="AracMarkaAdi" ColumnName="AracMarkaAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AracModel">
+            <EntityTypeMapping TypeName="IkinciElAracModel.AracModel">
+              <MappingFragment StoreEntitySet="AracModel">
+                <ScalarProperty Name="AracModelID" ColumnName="AracModelID" />
+                <ScalarProperty Name="AracModelAdi" ColumnName="AracModelAdi" />
+                <ScalarProperty Name="GovdeTipiID" ColumnName="GovdeTipiID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AracSatis">
+            <EntityTypeMapping TypeName="IkinciElAracModel.AracSatis">
+              <MappingFragment StoreEntitySet="AracSatis">
+                <ScalarProperty Name="AracSatisID" ColumnName="AracSatisID" />
+                <ScalarProperty Name="SatisTarihi" ColumnName="SatisTarihi" />
+                <ScalarProperty Name="SatinAlinanFiyat" ColumnName="SatinAlinanFiyat" />
+                <ScalarProperty Name="AracID" ColumnName="AracID" />
+                <ScalarProperty Name="KullanıcıID" ColumnName="KullanıcıID" />
+                <ScalarProperty Name="SatisTipiID" ColumnName="SatisTipiID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Donanim">
+            <EntityTypeMapping TypeName="IkinciElAracModel.Donanim">
+              <MappingFragment StoreEntitySet="Donanim">
+                <ScalarProperty Name="DonanimID" ColumnName="DonanimID" />
+                <ScalarProperty Name="DonanimAdi" ColumnName="DonanimAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ExpertizMerkez">
+            <EntityTypeMapping TypeName="IkinciElAracModel.ExpertizMerkez">
+              <MappingFragment StoreEntitySet="ExpertizMerkez">
+                <ScalarProperty Name="ExpertizMerkezID" ColumnName="ExpertizMerkezID" />
+                <ScalarProperty Name="ExpertizMerkezAdi" ColumnName="ExpertizMerkezAdi" />
+                <ScalarProperty Name="ExpertizMerkezAdresi" ColumnName="ExpertizMerkezAdresi" />
+                <ScalarProperty Name="ExpertizMerkezTelefonu" ColumnName="ExpertizMerkezTelefonu" />
+                <ScalarProperty Name="ExpertizMerkezMaili" ColumnName="ExpertizMerkezMaili" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Favori">
+            <EntityTypeMapping TypeName="IkinciElAracModel.Favori">
+              <MappingFragment StoreEntitySet="Favori">
+                <ScalarProperty Name="FavoriId" ColumnName="FavoriId" />
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="AracID" ColumnName="AracID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="FirmaTuru">
+            <EntityTypeMapping TypeName="IkinciElAracModel.FirmaTuru">
+              <MappingFragment StoreEntitySet="FirmaTuru">
+                <ScalarProperty Name="FirmaTuruID" ColumnName="FirmaTuruID" />
+                <ScalarProperty Name="FiirmaTuruAdi" ColumnName="FiirmaTuruAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Gorsel">
+            <EntityTypeMapping TypeName="IkinciElAracModel.Gorsel">
+              <MappingFragment StoreEntitySet="Gorsel">
+                <ScalarProperty Name="GorselID" ColumnName="GorselID" />
+                <ScalarProperty Name="GorselAdresi" ColumnName="GorselAdresi" />
+                <ScalarProperty Name="AracID" ColumnName="AracID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GovdeTipi">
+            <EntityTypeMapping TypeName="IkinciElAracModel.GovdeTipi">
+              <MappingFragment StoreEntitySet="GovdeTipi">
+                <ScalarProperty Name="GovdeTipiID" ColumnName="GovdeTipiID" />
+                <ScalarProperty Name="GovdeTipiAdi" ColumnName="GovdeTipiAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ihale">
+            <EntityTypeMapping TypeName="IkinciElAracModel.Ihale">
+              <MappingFragment StoreEntitySet="Ihale">
+                <ScalarProperty Name="IhaleID" ColumnName="IhaleID" />
+                <ScalarProperty Name="IhaleAdi" ColumnName="IhaleAdi" />
+                <ScalarProperty Name="IhaleBaslangicTarihi" ColumnName="IhaleBaslangicTarihi" />
+                <ScalarProperty Name="IhaleBitisTarihi" ColumnName="IhaleBitisTarihi" />
+                <ScalarProperty Name="IhaleBaslangicFiyati" ColumnName="IhaleBaslangicFiyati" />
+                <ScalarProperty Name="MaxAlimFiyati" ColumnName="MaxAlimFiyati" />
+                <ScalarProperty Name="KurumsalMi" ColumnName="KurumsalMi" />
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="AracID" ColumnName="AracID" />
+                <ScalarProperty Name="IhaleStatuID" ColumnName="IhaleStatuID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IhaleFiyat">
+            <EntityTypeMapping TypeName="IkinciElAracModel.IhaleFiyat">
+              <MappingFragment StoreEntitySet="IhaleFiyat">
+                <ScalarProperty Name="IhaleFiyatID" ColumnName="IhaleFiyatID" />
+                <ScalarProperty Name="Fiyat" ColumnName="Fiyat" />
+                <ScalarProperty Name="SiraNo" ColumnName="SiraNo" />
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="IhaleID" ColumnName="IhaleID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IhaleFiyatKullanici">
+            <EntityTypeMapping TypeName="IkinciElAracModel.IhaleFiyatKullanici">
+              <MappingFragment StoreEntitySet="IhaleFiyatKullanici">
+                <ScalarProperty Name="IhaleFiyatKullaniciID" ColumnName="IhaleFiyatKullaniciID" />
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="IhaleFiyatID" ColumnName="IhaleFiyatID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="IhaleStatu">
+            <EntityTypeMapping TypeName="IkinciElAracModel.IhaleStatu">
+              <MappingFragment StoreEntitySet="IhaleStatu">
+                <ScalarProperty Name="IhaleStatuID" ColumnName="IhaleStatuID" />
+                <ScalarProperty Name="IhaleStatuAdi" ColumnName="IhaleStatuAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Ilanbilgisi">
+            <EntityTypeMapping TypeName="IkinciElAracModel.Ilanbilgisi">
+              <MappingFragment StoreEntitySet="Ilanbilgisi">
+                <ScalarProperty Name="IlanbilgisiID" ColumnName="IlanbilgisiID" />
+                <ScalarProperty Name="IlanBasligi" ColumnName="IlanBasligi" />
+                <ScalarProperty Name="IlanAciklama" ColumnName="IlanAciklama" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Komisyon">
+            <EntityTypeMapping TypeName="IkinciElAracModel.Komisyon">
+              <MappingFragment StoreEntitySet="Komisyon">
+                <ScalarProperty Name="KomisyonID" ColumnName="KomisyonID" />
+                <ScalarProperty Name="BaslangicTarihi" ColumnName="BaslangicTarihi" />
+                <ScalarProperty Name="BitisTarihi" ColumnName="BitisTarihi" />
+                <ScalarProperty Name="MaxFiyat" ColumnName="MaxFiyat" />
+                <ScalarProperty Name="MinFiyat" ColumnName="MinFiyat" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Kullanici">
+            <EntityTypeMapping TypeName="IkinciElAracModel.Kullanici">
+              <MappingFragment StoreEntitySet="Kullanici">
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="KullaniciAdi" ColumnName="KullaniciAdi" />
+                <ScalarProperty Name="AdVeSoyad" ColumnName="AdVeSoyad" />
+                <ScalarProperty Name="Telefon" ColumnName="Telefon" />
+                <ScalarProperty Name="Mail" ColumnName="Mail" />
+                <ScalarProperty Name="KullaniciAktifmi" ColumnName="KullaniciAktifmi" />
+                <ScalarProperty Name="Sifre" ColumnName="Sifre" />
+                <ScalarProperty Name="ToplamIhaleAracSayisi" ColumnName="ToplamIhaleAracSayisi" />
+                <ScalarProperty Name="KullaniciOnaylimi" ColumnName="KullaniciOnaylimi" />
+                <ScalarProperty Name="KVKKTiklimi" ColumnName="KVKKTiklimi" />
+                <ScalarProperty Name="RolID" ColumnName="RolID" />
+                <ScalarProperty Name="PaketID" ColumnName="PaketID" />
+                <ScalarProperty Name="SirketBilgisiID" ColumnName="SirketBilgisiID" />
+                <ScalarProperty Name="KurumsalMi" ColumnName="KurumsalMi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Mesaj">
+            <EntityTypeMapping TypeName="IkinciElAracModel.Mesaj">
+              <MappingFragment StoreEntitySet="Mesaj">
+                <ScalarProperty Name="MesajID" ColumnName="MesajID" />
+                <ScalarProperty Name="MesajIcerik" ColumnName="MesajIcerik" />
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="NoterUcret">
+            <EntityTypeMapping TypeName="IkinciElAracModel.NoterUcret">
+              <MappingFragment StoreEntitySet="NoterUcret">
+                <ScalarProperty Name="NoterUcretID" ColumnName="NoterUcretID" />
+                <ScalarProperty Name="BaslangicTarihi" ColumnName="BaslangicTarihi" />
+                <ScalarProperty Name="BitisTarihi" ColumnName="BitisTarihi" />
+                <ScalarProperty Name="Ucret" ColumnName="Ucret" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Paket">
+            <EntityTypeMapping TypeName="IkinciElAracModel.Paket">
+              <MappingFragment StoreEntitySet="Paket">
+                <ScalarProperty Name="PaketID" ColumnName="PaketID" />
+                <ScalarProperty Name="PaketAdi" ColumnName="PaketAdi" />
+                <ScalarProperty Name="IhaledekiMaxAracSayasi" ColumnName="IhaledekiMaxAracSayasi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Parca">
+            <EntityTypeMapping TypeName="IkinciElAracModel.Parca">
+              <MappingFragment StoreEntitySet="Parca">
+                <ScalarProperty Name="ParcaID" ColumnName="ParcaID" />
+                <ScalarProperty Name="ParcaAdi" ColumnName="ParcaAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Renk">
+            <EntityTypeMapping TypeName="IkinciElAracModel.Renk">
+              <MappingFragment StoreEntitySet="Renk">
+                <ScalarProperty Name="RenkID" ColumnName="RenkID" />
+                <ScalarProperty Name="RenkAdi" ColumnName="RenkAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Rol">
+            <EntityTypeMapping TypeName="IkinciElAracModel.Rol">
+              <MappingFragment StoreEntitySet="Rol">
+                <ScalarProperty Name="RolID" ColumnName="RolID" />
+                <ScalarProperty Name="RolAdi" ColumnName="RolAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SatisTipi">
+            <EntityTypeMapping TypeName="IkinciElAracModel.SatisTipi">
+              <MappingFragment StoreEntitySet="SatisTipi">
+                <ScalarProperty Name="SatisTipiID" ColumnName="SatisTipiID" />
+                <ScalarProperty Name="SatisTipiAdi" ColumnName="SatisTipiAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SattigimArac">
+            <EntityTypeMapping TypeName="IkinciElAracModel.SattigimArac">
+              <MappingFragment StoreEntitySet="SattigimArac">
+                <ScalarProperty Name="SattigimAracId" ColumnName="SattigimAracId" />
+                <ScalarProperty Name="SattigimTarih" ColumnName="SattigimTarih" />
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="AracID" ColumnName="AracID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SirketBilgisi">
+            <EntityTypeMapping TypeName="IkinciElAracModel.SirketBilgisi">
+              <MappingFragment StoreEntitySet="SirketBilgisi">
+                <ScalarProperty Name="SirketBİlgisiID" ColumnName="SirketBİlgisiID" />
+                <ScalarProperty Name="FirmaAdi" ColumnName="FirmaAdi" />
+                <ScalarProperty Name="Sehir" ColumnName="Sehir" />
+                <ScalarProperty Name="Ilce" ColumnName="Ilce" />
+                <ScalarProperty Name="Adres" ColumnName="Adres" />
+                <ScalarProperty Name="FirmaTuruID" ColumnName="FirmaTuruID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Statu">
+            <EntityTypeMapping TypeName="IkinciElAracModel.Statu">
+              <MappingFragment StoreEntitySet="Statu">
+                <ScalarProperty Name="StatuID" ColumnName="StatuID" />
+                <ScalarProperty Name="Tarih" ColumnName="Tarih" />
+                <ScalarProperty Name="StatuTipiID" ColumnName="StatuTipiID" />
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StatuTipi">
+            <EntityTypeMapping TypeName="IkinciElAracModel.StatuTipi">
+              <MappingFragment StoreEntitySet="StatuTipi">
+                <ScalarProperty Name="StatuTipiID" ColumnName="StatuTipiID" />
+                <ScalarProperty Name="StatuTipiAdi" ColumnName="StatuTipiAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sysdiagrams">
+            <EntityTypeMapping TypeName="IkinciElAracModel.sysdiagrams">
+              <MappingFragment StoreEntitySet="sysdiagrams">
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+                <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+                <ScalarProperty Name="version" ColumnName="version" />
+                <ScalarProperty Name="definition" ColumnName="definition" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TeklifVerdigimArac">
+            <EntityTypeMapping TypeName="IkinciElAracModel.TeklifVerdigimArac">
+              <MappingFragment StoreEntitySet="TeklifVerdigimArac">
+                <ScalarProperty Name="TeklifVerdigimAracId" ColumnName="TeklifVerdigimAracId" />
+                <ScalarProperty Name="KullaniciID" ColumnName="KullaniciID" />
+                <ScalarProperty Name="IhaleFiyatID" ColumnName="IhaleFiyatID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TramerBilgisi">
+            <EntityTypeMapping TypeName="IkinciElAracModel.TramerBilgisi">
+              <MappingFragment StoreEntitySet="TramerBilgisi">
+                <ScalarProperty Name="TramerBilgisiID" ColumnName="TramerBilgisiID" />
+                <ScalarProperty Name="TramerBilgisiDurumID" ColumnName="TramerBilgisiDurumID" />
+                <ScalarProperty Name="ParcaID" ColumnName="ParcaID" />
+                <ScalarProperty Name="AracID" ColumnName="AracID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="TramerBilgisiDurum">
+            <EntityTypeMapping TypeName="IkinciElAracModel.TramerBilgisiDurum">
+              <MappingFragment StoreEntitySet="TramerBilgisiDurum">
+                <ScalarProperty Name="TramerBilgisiDurumID" ColumnName="TramerBilgisiDurumID" />
+                <ScalarProperty Name="TramerBilgisiDurumAdi" ColumnName="TramerBilgisiDurumAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VitesTipi">
+            <EntityTypeMapping TypeName="IkinciElAracModel.VitesTipi">
+              <MappingFragment StoreEntitySet="VitesTipi">
+                <ScalarProperty Name="VitesTipiiID" ColumnName="VitesTipiiID" />
+                <ScalarProperty Name="VitesTipiAdi" ColumnName="VitesTipiAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="YakitTipi">
+            <EntityTypeMapping TypeName="IkinciElAracModel.YakitTipi">
+              <MappingFragment StoreEntitySet="YakitTipi">
+                <ScalarProperty Name="YakitTipiID" ColumnName="YakitTipiID" />
+                <ScalarProperty Name="YakitTipiAdi" ColumnName="YakitTipiAdi" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

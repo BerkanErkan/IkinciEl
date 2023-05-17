@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutPage.cshtml";
+}
+
+<h2>Index</h2>
+
+@section ustMenu{
+
+    @using (Html.BeginForm("Index", "AracList", FormMethod.Post))
+    {
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-md-6">
+                @Html.DropDownList("MarkaID", new SelectList(ViewBag.Markalist, "AracMarkaID", "AracMarkaAdi"), "Marka Seçiniz", new { @class = "form-control" })
+                @Html.DropDownList("ModelID", new SelectList(ViewBag.ModelList, "AracModelID", "AracModelAdi"), "Model Seçiniz", new { @class = "form-control" })
+                <input type="submit" name="name" value="Seçimi bitir" class="btn btn-primary" />
+            </div>
+
+        </div>
+
+
+    }
+    <div class="row" style="margin-top: 20px;">
+        <div class="col-md-6">
+            @using (Html.BeginForm("IndexAracOnay", "AracList", FormMethod.Post))
+            {
+                @Html.DropDownList("Onay", new List<SelectListItem>()
+                {
+                    new SelectListItem() { Text = "Onaylı", Value = "true" },
+                    new SelectListItem() { Text = "Onaysız", Value = "false" }
+                }, "Onay Durumu..", new { @class = "form-control" })
+                <input type="submit" name="name" value="Seçimi bitir" class="btn btn-primary" />
+            }
+        </div>
+    </div>
+
+
+
+    @using (Html.BeginForm("IndexAracEkle", "AracList", FormMethod.Post))
+    {
+        <div class="row" style="margin-top: 20px;">
+            <div class="col-6">
+                <input type="submit" name="name" value="Arac Ekle" class="btn btn-primary btn-lg btn-block" />
+            </div>       
+           
+        </div>
+            
+     }
+            <h1 class="mt-4">Araçlar</h1>
+
+
+            <div class="card mb-4">
+                <div class="card-header">
+                    <i class="fas fa-table me-1"></i>
+                    Araçlar
+                </div>
+                <div class="card-body">
+                    <table id="datatablesSimple">
+                        <thead>
+                            <tr>
+                                <th>AracID</th>
+                                <th>Araç Marka</th>
+                                <th>Araç Model</th>
+                                <th>Bireysel/Kurumsal</th>
+                                <th>Kaydeden Kullanıcı</th>
+                                <th>KAydetme Zamanı</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+
+                        </tfoot>
+                        <tbody>
+
+
+                            @using (Html.BeginForm("IndexAracDetay", "AracList", FormMethod.Post))
+                            {
+
+                                foreach (IkinciEl.UI.Models.VM.AracVM item in ViewBag.Araclist)
+                                {
+
+                                    <tr>
+                                        <td>@item.AracID</td>
+                                        <td>@item.AracMarka</td>
+                                        <td>@item.AracModel</td>
+                                        <td>@item.FirmaAdi</td>
+                                        <td>@item.KaydedenKullanici</td>
+                                        <td>@item.KaydetmeZamani</td>
+                                        <td>
+                                            <button type="submit" name="AracID" value="@item.AracID" class="btn btn-primary">Detay</button>
+                                        </td>
+
+                                    </tr>
+
+
+                                }
+
+
+                            }
+
+
+
+
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+            }
+
+
+            @section altMenu{
+            }
